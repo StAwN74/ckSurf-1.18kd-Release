@@ -1306,7 +1306,7 @@ public Action Command_ext_Menu(int client, const char[] command, int argc)
 public Action Command_JoinTeam(int client, const char[] command, int argc)
 {
 	if (!WeAreOk)
-		return Plugin_Continue;
+		return Plugin_Handled;
 	
 	if (!IsValidClient(client) || argc < 1)
 		return Plugin_Handled;
