@@ -7,5 +7,5 @@
   - Bots, weapons, and respawn management
   - Players & admins commands related issues
   - Hooks / events handling
-  - Replays related crashs fixed
+  - Replays related crash fixed
 #
