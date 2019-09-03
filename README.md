@@ -6,6 +6,6 @@
   - Replays related crash fixed
   - Bots, weapons, and respawn management
   - Players & admins commands related issues
-  - Hooks / events handling
-  - Timer handles
+  - Hooks / events handling for all maps
+  - Timer handles and client indexes
 #
