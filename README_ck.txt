@@ -2,6 +2,8 @@
 The 'no discord' version is lighter and doesn't use either SMJansson or SteamWorks.
 Use ckSurf_sl.smx + discord_api.smx (MANDATORY for ckSurf_sl to work) to have the discord version, or simply use ckSurf_sln.smx to run the light version.
 Base of the discord part before integration: https://github.com/Deathknife/sourcemod-discord
+Base of ckSurf plugin: https://forums.alliedmods.net/showthread.php?t=264498
+This version also refers to Fluffy's Nikooo's, Marcomadeira's and z4lab's forks.
 
 [INSTALL]
 1)  Copy and paste the text contained in cfg/server_example.cfg to your own server.cfg.
