@@ -8,4 +8,5 @@
   - Players & admins commands related issues
   - Hooks / events handling
   - Timer handles
+ Feel free to help
 #
