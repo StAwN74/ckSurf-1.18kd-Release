@@ -4,8 +4,8 @@ void disableServerHibernate()
 	g_iServerHibernationValue = GetConVarInt(hServerHibernate);
 	if (g_iServerHibernationValue > 0)
 	{
-		//PrintToServer("[ckSurf] Disabling server hibernation.");
-		//SetConVarInt(hServerHibernate, 0, false, false);
+		PrintToServer("[ckSurf] Disabling server hibernation.");
+		SetConVarInt(hServerHibernate, 0, false, false);
 	}
 	CloseHandle(hServerHibernate);
 	return;
@@ -16,8 +16,8 @@ void revertServerHibernateSettings()
 	Handle hServerHibernate = FindConVar("sv_hibernate_when_empty");
 	if (GetConVarInt(hServerHibernate) != g_iServerHibernationValue)
 	{
-		//PrintToServer("[ckSurf] Resetting Server Hibernation CVar");
-		//SetConVarInt(hServerHibernate, g_iServerHibernationValue, false, false);
+		PrintToServer("[ckSurf] Resetting Server Hibernation CVar");
+		SetConVarInt(hServerHibernate, g_iServerHibernationValue, false, false);
 	}
 	CloseHandle(hServerHibernate);
 	return;
