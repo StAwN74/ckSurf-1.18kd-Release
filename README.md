@@ -5,7 +5,7 @@
   Taking no credits except the fixing part of a good ol' car, see below:
   - Replays related crash fixed
   - Weapons, Bots and respawn management
-  - Players & admins commands related issues
+  - Player & admin commands related issues
   - Hooks / events handling for all maps
-  - Timer handles and clients indexes
+  - Timer handles and client indexes
 #
