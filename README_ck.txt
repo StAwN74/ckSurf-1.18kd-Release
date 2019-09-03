@@ -1,7 +1,7 @@
 [INTRO]
 The 'no discord' version is lighter and doesn't use either SMJansson or SteamWorks.
-You can use ckSurf_sl.smx + discord_api.smx (MANDATORY for ckSurf_sl to work): you have the discord version. Or you can just use ckSurf_sln.smx.
-Base of the discord part bzfore integration: https://github.com/Deathknife/sourcemod-discord
+Use ckSurf_sl.smx + discord_api.smx (MANDATORY for ckSurf_sl to work) to have the discord version, or simply use ckSurf_sln.smx to run the light version.
+Base of the discord part before integration: https://github.com/Deathknife/sourcemod-discord
 
 [INSTALL]
 1)  Copy and paste the text contained in cfg/server_example.cfg to your own server.cfg.
