@@ -4,7 +4,7 @@
   Find me / Discuss here: https://forums.alliedmods.net/member.php?u=107052. More info in the included Readme.
   Taking no credits except the fixing part of a good ol' car, see below:
   - Timer handles
-  - Bots, weapons, and respawn handling
+  - Bots, weapons, and respawn management
   - Commands related issues
   - Hooks / events handling
   - Replays related crashs fixed
