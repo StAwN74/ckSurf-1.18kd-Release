@@ -7,5 +7,5 @@
   - Weapons, Bots and respawn management
   - Players & admins commands related issues
   - Hooks / events handling for all maps
-  - Timer handles and client indexes
+  - Timer handles and clients indexes
 #
