@@ -11,9 +11,8 @@
   
 #
 # Install:
-  
-  1- copy cfg/server_example.cfg content to your server.cfg
-  2- create a database entry in addons/sourcemod/configs/databases.cfg like so:
+  - copy cfg/server_example.cfg content to your server.cfg
+  - create a database entry in addons/sourcemod/configs/databases.cfg like so:
   "Databases"
   {
   (...)
@@ -26,6 +25,6 @@
 	  }
   (...)
   }
-  3- Start the server. Using -tickrate 102.4 parameter in command start line of a surf csgo server is recommended to avoid ramp glitch.
+  - Start the server. Using -tickrate 102.4 parameter in command start line of a surf csgo server is recommended to avoid ramp glitch.
      Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 #
