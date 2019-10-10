@@ -8,8 +8,7 @@
   - Weapons, bots and respawn management reviewed to avoid errors & map crashs
   - Hooks/events updated and plugin supports any kind of map
   - Timer handles and client indexes fixed
-  
-#
+
 # Install:
   - Copy cfg/server_example.cfg content to your server.cfg
   - Create a database entry in addons/sourcemod/configs/databases.cfg like so: https://nsa40.casimages.com/img/2019/10/10/191010010823736378.png
