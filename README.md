@@ -9,7 +9,9 @@
   - Hooks/events updated and plugin supports any kind of map
   - Timer handles and client indexes fixed
   
-  Install:
+#
+# Install:
+  
   1- copy cfg/server_example.cfg content to your server.cfg
   2- create a database entry in addons/sourcemod/configs/databases.cfg like so:
   "Databases"
