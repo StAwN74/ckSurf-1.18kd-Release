@@ -5,8 +5,8 @@
   Taking no credit except the fixing part of a good ol' car, see below:
   - Replay related crashs fixed
   - Player & admin commands related issues fixed
-  - Weapons, bots and respawn management reviewed to avoid errors & map crashs
-  - Hooks/events updated and plugin supports any kind of map
+  - Weapons and bots management reviewed to avoid errors & map crashs
+  - Hooks/events updated, plugin now supports any kind of map
   - Timer handles and client indexes fixed
 
 # Install:
