@@ -4,7 +4,7 @@ Install: see README_ck.txt or check the fast install steps below:
 
 1- Copy cfg/server_example.cfg content to your server.cfg, then upload all files. Keep your cleaner extension if it works.
 
-2- Create a database entry in addons/sourcemod/configs/databases.cfg like so:
+2- Create a database entry in addons/sourcemod/configs/databases.cfg like so (with user and password):
 
 "Databases"
 {
