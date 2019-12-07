@@ -2,7 +2,7 @@ Don't use them. This is a ready to go version. These files are here for referenc
 
 Install: see README_ck.txt or check the fast install steps below:
 
-1- copy cfg/server_example.cfg content to your server.cfg
+1- copy cfg/server_example.cfg content to your server.cfg, then upload all files. Keep your cleaner extension if it works.
 
 2- create a database entry in addons/sourcemod/configs/databases.cfg like so:
 
