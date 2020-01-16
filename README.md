@@ -15,3 +15,7 @@
   https://nsa40.casimages.com/img/2019/10/10/191010010823736378.png
   - Start the server. Using -tickrate 102.4 parameter in command start line of a csgo surf server is recommended to avoid ramp glitch.
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
+
+# Changelog:
+  - 16/01/20: ck_surf sl, slh, sln, slnh .sp & .smx updated (8 files) and also scripting/cksurf/misc and hooks .sp (6 files).
+    - > Fixed checkSpawns log errors, weapon buy on regular maps, OnMapStart default settings
