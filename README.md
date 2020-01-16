@@ -18,4 +18,4 @@
 
 # Changelog:
   - 16/01/20: ck_surf sl, slh, sln, slnh .sp & .smx updated (8 files) and also scripting/cksurf/misc and hooks .sp (6 files).
-    - > Fixed checkSpawns log errors, weapon buy on regular maps, OnMapStart default settings
+  - > Fixed checkSpawns log errors, weapon buy on regular maps, OnMapStart default settings
