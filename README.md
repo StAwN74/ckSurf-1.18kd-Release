@@ -17,5 +17,5 @@
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
 # Changelog:
-  - 16/01/20: ck_surf sl, slh, sln, slnh .sp & .smx updated (8 files) and also scripting/cksurf/misc and hooks .sp (6 files).
-    - > Fixed checkSpawns log errors, weapon buy on regular maps, OnMapStart default settings
+  - 16/01/20 (2): ck_surf sl, slh, sln, slnh .sp & .smx updated (8 files) and also scripting/cksurf/misc and hooks .sp (6 files).
+    - > Fixed checkSpawns log errors, weapon buy on regular maps, OnMapStart default settings.
