@@ -25,6 +25,6 @@
     It will never check and never change your hibernation status, and I recommend using it.
 
 # To Do:
-If someone can help reducing handles (~1.1k handles running versus 40 or 100 for small plugins), this would be appreciated.
+If someone can help reduce handles (~1.1k handles running versus 40 or 100 for smaller plugins), this would be appreciated.
 
 # 👽
