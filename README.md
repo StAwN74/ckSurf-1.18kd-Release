@@ -18,6 +18,7 @@
 
 # Changelog:
   - 16/01/20 edit:
+  
   ck_surf sl, slh, sln, slnh .sp & .smx updated (8 files) and also scripting/cksurf/misc and hooks .sp (6 files).
     - > Fixed checkSpawns log error, and weapon buy on regular maps.
     - > A second log error has recently been reported to me (at RecordReplay callback when all velocities are null, i.e idle player).
