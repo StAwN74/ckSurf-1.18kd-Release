@@ -18,9 +18,10 @@
 
 # Changelog:
   - 16/01/20: ck_surf sl, slh, sln, slnh .sp & .smx updated (8 files) and also scripting/cksurf/misc and hooks .sp (6 files).
-    - > Fixed checkSpawns log error, and weapon buy on regular maps.  
-    A second log error has recently been reported (at RecordReplay callback when all velocities are null, i.e idle player). If it was due to the error above, it is now fixed. Otherwise, see below.
-    - > Added "Reduce handles" (~1.1k handles running versus 40 or 100 for smaller plugins), in a 'To Do' list.
+    - > Fixed weapon buy on regular maps (like de_dust2)
+    - > checkSpawns log error fixed (an error while creating missing spawns on a surf map)
+    - > Trying to reduce handles usage. Use disabled/ckSurf_sln_hand or ckSurf_slnh_hand for a try.  
+    (~1.1k handles running versus 40 or 100 for smaller plugins).
     - > There is a ckSurf_slh (and a ckSurf_slnh for non discord users) smx version in plugins/disabled. 
     If you have properly set sv_hibernate_when_empty 0 in server.cfg and at launch (+sv_hibernate_when_empty 0), you can use the -slh (or -slnh) version instead of the regular one.  
     It will never check and never change your hibernation status, which I recommend.
