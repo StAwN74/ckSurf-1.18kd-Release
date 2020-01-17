@@ -19,7 +19,7 @@
 # Changelog:
   - 16/01/20: ck_surf sl, slh, sln, slnh .sp & .smx updated (8 files) and also scripting/cksurf/misc and hooks .sp (6 files).
     - > Fixed weapon buy on regular maps like de_dust2,  and 'checkSpawns' log error.
-    - > Note: There is a ckSurf_slh smx file (and a ckSurf_slnh one for non discord users) in plugins/disabled. 
+    - > Note: There is a ckSurf_slh smx file (and a ckSurf_slnh one for non discord users) in plugins/disabled.  
     If you have properly set sv_hibernate_when_empty 0 in server.cfg and at launch command, you can use the this version instead of the regular one.  
     It will never check and never change your hibernation status, which I recommend.
     - > Complaining about handles usage? Use ckSurf_sl_hand or ckSurf_sln_hand (even better: ckSurf_slh_hand or ckSurf_slnh_hand).
