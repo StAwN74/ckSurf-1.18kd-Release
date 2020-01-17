@@ -22,4 +22,4 @@
     - > Note: In plugins/disabled, there is a ckSurf_slh smx file (ckSurf_slnh for non discord users).  
     You can use the this version instead of the regular one, if you have properly set sv_hibernate_when_empty 0 in server.cfg and at server's launch command parameters.  
     It will never check and never change your hibernation status, which is recommended on custom maps.
-    - > Problems with handles? Try ckSurf_sl_hand or ckSurf_sln_hand instead (server restart needed).
+    - > Problems with handles? Try ckSurf_sl_hand or ckSurf_sln_hand instead (see plugins/disabled folder). Server restart needed.
