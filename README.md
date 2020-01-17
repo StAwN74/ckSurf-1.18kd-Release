@@ -24,4 +24,4 @@ If it was due to the error above, it is now fixed. It might be due to a non ckSu
     - > Remember, there is a ckSurf_slh (and a ckSurf_slnh for non discord users) smx version in plugins/disabled. If you have properly set sv_hibernate_when_empty 0 at server.cfg and at launch command (+sv_hibernate_when_empty 0), you can use this -slh (or -slnh) version instead of the regular one. It will never check and never change your hibernation status. Which is good.
 
 # To Do:
-Btw if someone can help reducing handles (~1.1k handles running versus 40 or 100 for small plugins), help would be much appreciated.
+If someone can help reducing handles (~1.1k handles running versus 40 or 100 for small plugins), help would be much appreciated.
