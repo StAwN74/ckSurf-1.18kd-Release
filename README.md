@@ -22,6 +22,6 @@
     - > Note: There is a ckSurf_slh smx file (and a ckSurf_slnh one for non discord users) in plugins/disabled.  
     If you have properly set sv_hibernate_when_empty 0 in server.cfg and at launch command, you can use the this version instead of the regular one.  
     It will never check and never change your hibernation status, which I recommend.
-    - > Complaining about handles usage? Use ckSurf_sl_hand or ckSurf_sln_hand (even better: ckSurf_slh_hand or ckSurf_slnh_hand).
+    - > Complaining about handles usage? Also try ckSurf_sl_hand or _sln_hand.
 
 # <p align="center">🏄</p>
