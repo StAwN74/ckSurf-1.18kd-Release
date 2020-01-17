@@ -1,3 +1,5 @@
+# 👽
+
 # ckSurf-1.18kd-Release
   Last seen version of a great plugin, server crash fixed.
   No memory leak, no need to fully unload plugin on regular maps.
