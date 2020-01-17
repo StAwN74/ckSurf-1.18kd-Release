@@ -1,4 +1,4 @@
-# ckSurf-1.18kd-Release
+# ckSurf-1.18kd-Release 🏄
   Last seen version of a great plugin, server crash fixed.
   No memory leak, no need to fully unload plugin on regular maps.
   Find me / Discuss here: https://forums.alliedmods.net/member.php?u=107052. More info in the included Readme.
@@ -23,5 +23,3 @@
     If you have properly set sv_hibernate_when_empty 0 in server.cfg and at launch command, you can use the this version instead of the regular one.  
     It will never check and never change your hibernation status, which I recommend.
     - > Complaining about handles usage? Also try ckSurf_sl_hand or _sln_hand (server restart needed)
-
-# <p align="center">🏄</p>
