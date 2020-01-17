@@ -19,8 +19,8 @@
 # Changelog:
   - 16/01/20 edit: ck_surf sl, slh, sln, slnh .sp & .smx updated (8 files) and also scripting/cksurf/misc and hooks .sp (6 files).
     - > Fixed checkSpawns log error, and weapon buy on regular maps.
-    - > A second rare log error has been reported (at RecordReplay callback when all velocities are null, i.e idle player).
-If it was due to the error above, it is now fixed. It might be due to a non ckSurf cause anyway.
+    - > A second log error has recently been reported to me (at RecordReplay callback when all velocities are null, i.e idle player).
+If it was due to the error above, it is now fixed.
     - > Remember, there is a ckSurf_slh (and a ckSurf_slnh for non discord users) smx version in plugins/disabled. If you have properly set sv_hibernate_when_empty 0 at server.cfg and at launch command (+sv_hibernate_when_empty 0), you can use this -slh (or -slnh) version instead of the regular one. It will never check and never change your hibernation status. Which is good.
 
 # To Do:
