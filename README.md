@@ -17,10 +17,9 @@
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
 # Changelog:
+  - Feb2020 : Please use ckSurf_sl_hand or ckSurf_sln_hand instead (see plugins/disabled folder). Server restart needed. Fixed a handle not closing.
   - 16/01/20: ck_surf sl, slh, sln, slnh .sp & .smx updated (8 files) and also scripting/cksurf/misc and hooks .sp (6 files).
     - > Fixed weapon buy on regular maps like de_dust2,  and 'checkSpawns' log error.
     - > Note: In plugins/disabled, there is a ckSurf_slh smx file (ckSurf_slnh for non discord users).  
     You can use the this version instead of the regular one, if you have properly set sv_hibernate_when_empty 0 in server.cfg and in server's launch command parameters.  
     It will never check and never change your hibernation status, which is recommended on custom maps.
-    - > Problems with handles? Try ckSurf_sl_hand or ckSurf_sln_hand instead (see plugins/disabled folder).  
-    Server restart needed.
