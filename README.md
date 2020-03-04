@@ -10,7 +10,7 @@
   - Timer handles and client indexes fixed
 
 # Install 🏄
-  - Copy cfg/server_example.cfg content to your server.cfg, then upload all files. Keep your own cleaner extension if it works.
+  - Copy cfg/server_example.cfg content to your server.cfg, then upload all files. Keep your own cleaner extension version if it works, as I will not update it.
   - Create a database entry in addons/sourcemod/configs/databases.cfg like so (you should set your user & password):
   https://nsa40.casimages.com/img/2019/10/10/191010010823736378.png
   - Start the server. Using -tickrate 102.4 parameter in command start line of a csgo surf server is recommended to avoid ramp glitch.
