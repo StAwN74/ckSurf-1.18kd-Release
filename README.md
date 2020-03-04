@@ -17,7 +17,7 @@
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
 # Changelog:
-  - Feb2020 : Fixed a couple of handles not closing.
+  - 04/03/20: Fixed a couple of handles not closing.
   - 16/01/20: Fixed weapon buy on regular maps like de_dust2,  and 'checkSpawns' log error.
   - Note: In plugins/disabled, there is a ckSurf_slh smx file (ckSurf_slnh for non discord users).  
     You can use the this version instead of the regular one, if you have properly set sv_hibernate_when_empty 0 in server.cfg and in server's launch command parameters.  
