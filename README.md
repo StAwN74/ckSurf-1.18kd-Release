@@ -9,14 +9,14 @@
   - Hooks/events updated, plugin now supports any kind of map
   - Timer handles and client indexes fixed
 
-# Install: 🏄
+# Install 🏄
   - Copy cfg/server_example.cfg content to your server.cfg, then upload all files. Keep your cleaner extension if it works.
   - Create a database entry in addons/sourcemod/configs/databases.cfg like so (you should set your user & password):
   https://nsa40.casimages.com/img/2019/10/10/191010010823736378.png
   - Start the server. Using -tickrate 102.4 parameter in command start line of a csgo surf server is recommended to avoid ramp glitch.
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
-# Changelog:
+# Changelog
   - 04/03/20: Fixed a couple of handles not closing.
   - 16/01/20: Fixed weapon buy on regular maps like de_dust2,  and 'checkSpawns' log error.
   - Note: In plugins/disabled, there is a ckSurf_slh smx file (ckSurf_slnh for non discord users).  
