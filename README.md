@@ -21,4 +21,4 @@
   - 16/01/20: Fixed weapon buy on regular maps like de_dust2,  and 'checkSpawns' log error.
   - Note: In plugins/disabled, there is a ckSurf_slh smx file (ckSurf_slnh for non discord users).  
     You can use the this version instead of the regular one, if you have properly set sv_hibernate_when_empty 0 in server.cfg and in server's launch command parameters.  
-    It will never check and never change your hibernation status, which is recommended on custom maps.
+    It will never check and never change your hibernation status, which I recommend.
