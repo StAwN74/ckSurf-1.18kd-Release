@@ -17,6 +17,7 @@
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
 # Changelog
+  - 18/05/20: Fixed round not ending on regular maps.
   - 04/03/20: Fixed a couple of handles not closing.
   - 16/01/20: Fixed weapon buy on regular maps like de_dust2,  and 'checkSpawns' log error.
   - Note: In plugins/disabled, there is a ckSurf_slh smx file (ckSurf_slnh for non discord users).  
