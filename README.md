@@ -23,4 +23,4 @@
   - 16/01/20: Fixed weapon buy on regular maps like de_dust2,  and 'checkSpawns' log error. Plugin uses maps configs (cfg/sourcemod/ckSurf/map_types/) to manage respawn and round end. ck_autorespawn and ck_round_end are thus obsolete.
   - Note: In plugins/disabled, there is a ckSurf_slh smx file (ckSurf_slnh for non discord users).  
     You can use the this version instead of the regular one, if you have properly set sv_hibernate_when_empty 0 in server.cfg and in server's launch command parameters.  
-    It will never check and never change your hibernation status, which I recommend.
+    It will never check and never change your hibernation status to write data in your database, which I recommend.
