@@ -17,9 +17,10 @@
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
 # Changelog
+  - 24/05/20: Fixed match not starting on regular maps.
   - 18/05/20: Fixed round not ending on regular maps.
   - 04/03/20: Fixed a couple of handles not closing.
-  - 16/01/20: Fixed weapon buy on regular maps like de_dust2,  and 'checkSpawns' log error.
+  - 16/01/20: Fixed weapon buy on regular maps like de_dust2,  and 'checkSpawns' log error. Plugin uses maps configs (cfg/sourcemod/ckSurf/map_types/) to manage respawn and round end. ck_autorespawn and ck_round_end are thus obsolete.
   - Note: In plugins/disabled, there is a ckSurf_slh smx file (ckSurf_slnh for non discord users).  
     You can use the this version instead of the regular one, if you have properly set sv_hibernate_when_empty 0 in server.cfg and in server's launch command parameters.  
     It will never check and never change your hibernation status, which I recommend.
