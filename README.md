@@ -17,10 +17,11 @@
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
 # Changelog
-  - 24/05/20: Fixed match not starting on regular maps on plugin late load.
-  - 18/05/20: Fixed rounds not ending on regular maps.
-  - 04/03/20: Fixed a couple of handles not closing.
+  - May 2020: Fixed match not starting/rounds not ending on regular maps.
+  Also fixed: Ragdoll removing, a lil' translation mistyping, mp_restartgame use (this bug also appeared on 1st bot joining)
+  Added Fluffy's gravity fix, and added a raw "FakeClientCommandEx sm_clear" to prevent cheats whith another checkpoint plugin... I should remove this!
+  - 04/03/20: Fixed a couple of handles not closing. -> Pretty sure this Fluffy/z4lab/olokos fix added bugs, removed.
   - 16/01/20: Fixed weapon buy on regular maps like de_dust2,  and 'checkSpawns' log error. Plugin uses maps configs (cfg/sourcemod/ckSurf/map_types/) to manage respawn and round end. ck_autorespawn and ck_round_end are thus obsolete.
-  - Note: In plugins/disabled, there is a ckSurf_slh smx file (ckSurf_slnh for non discord users).  
+  - Note: In plugins/disabled, there is a ckSurf_slh_rev smx file (ckSurf_slnh_rev for non discord users).  
     You can use the this version instead of the regular one, if you have properly set sv_hibernate_when_empty 0 in server.cfg and in server's launch command parameters.  
     It will never check and never change your hibernation status to write data in your database, which I recommend.
