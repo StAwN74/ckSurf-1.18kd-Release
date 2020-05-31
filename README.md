@@ -19,7 +19,7 @@
 # Changelog
   - May 2020: Fixed match not starting/rounds not ending on regular maps.  
   Also fixed: Ragdoll removing, a lil' translation mistyping, mp_restartgame use (this bug also appeared on 1st bot joining).  
-  Added Fluffy's gravity fix, and added a raw "FakeClientCommandEx sm_clear" to prevent cheats whith another checkpoint plugin... I should remove this, some users may have another plugin calling sm_clear.
+  Added Fluffy's gravity fix, and added a raw "FakeClientCommandEx sm_clear" to prevent cheats whith another checkpoint plugin... I should remove this, some users may have one more plugin calling sm_clear.
   - 16/01/20: Fixed weapon buy on regular maps like de_dust2,  and 'checkSpawns' log error. Plugin uses maps configs (cfg/sourcemod/ckSurf/map_types/) to manage respawn and round end. ck_autorespawn and ck_round_end are thus obsolete.
   - Note: In plugins/disabled, there is a ckSurf_slh_rev smx file (ckSurf_slnh_rev for non discord users).  
     You can use the this version instead of the regular one, if you have properly set sv_hibernate_when_empty 0 in server.cfg and in server's launch command parameters.  
