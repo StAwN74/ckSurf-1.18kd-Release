@@ -19,7 +19,7 @@
 # Changelog
   - 01/06/20: Fixed ragdoll removal and a lil' translation mistyping.  
   Added a raw "FakeClientCommandEx sm_clear" to prevent cheats whith another checkpoint plugin.  
-  Currently trying to reduce arrays.
+  Currently trying to reduce arrays, and to fix !goto command behavior.
   I should remove comments, be more precise, but hey I needed a lot of tests.  
   Discovered you should nnot try mp_restartgame on a surf_map -_-  
   - 16/01/20: Fixed weapon buy on regular maps like de_dust2,  and 'checkSpawns' log error. Plugin uses maps configs (cfg/sourcemod/ckSurf/map_types/) for respawn and round end. ck_autorespawn and ck_round_end are thus obsolete.
