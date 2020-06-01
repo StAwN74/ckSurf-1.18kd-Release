@@ -17,8 +17,9 @@
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
 # Changelog
-  - 01/06/20: Fixed ragdoll removal, a lil' translation mistyping. Added a raw "FakeClientCommandEx sm_clear" to prevent cheats whith another checkpoint plugin.
-  I should remove this, some users may have one more plugin calling sm_clear. I should also remove comments, be more precise, but hey I needed a lot of tests.  
+  - 01/06/20: Fixed ragdoll removal and a lil' translation mistyping.  
+  Added a raw "FakeClientCommandEx sm_clear" to prevent cheats whith another checkpoint plugin. I should remove this, some users may have one more plugin calling sm_clear.  
+  I should also remove comments, be more precise, but hey I needed a lot of tests.  
   Discovered you should never use mp_restartgame on a surf_map -_-
   - 16/01/20: Fixed weapon buy on regular maps like de_dust2,  and 'checkSpawns' log error. Plugin uses maps configs (cfg/sourcemod/ckSurf/map_types/) for respawn and round end. ck_autorespawn and ck_round_end are thus obsolete.
   - Note: In plugins/disabled, there is a ckSurf_slh_rev smx file (ckSurf_slnh_rev for non discord users).  
