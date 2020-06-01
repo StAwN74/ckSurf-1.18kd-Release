@@ -338,7 +338,7 @@ public void Event_OnPlayerTeam(Handle event, const char[] name, bool dontBroadca
 		//return Plugin_Continue;
 		return;
 	int client = GetClientOfUserId(GetEventInt(event, "userid"));
-	if (!client)
+	if (!IsValidClient(client))
 		return;
 	//Letting this for bot too?
 	if (IsFakeClient(client))
@@ -476,13 +476,13 @@ public Action Event_OnPlayerDeath(Handle event, const char[] name, bool dontBroa
 public Action CS_OnTerminateRound(float &delay, CSRoundEndReason &reason)
 {
 	PrintToServer("[CK] CS_OnTerminateRound fired");
-	//if (WeAreOk && reason == CSRoundEnd_GameStart)
-	//{
+	if (WeAreOk && reason == CSRoundEnd_GameStart)
+	{
 		//We are blocking round end
-		//if (g_bRoundEnd)
-			//g_bRoundEnd = false;
-		//return Plugin_Handled;
-	//}
+		if (g_bRoundEnd)
+			g_bRoundEnd = false;
+		return Plugin_Handled;
+	}
 	//int timeleft;
 	//GetMapTimeLeft(timeleft);
 	//if (WeAreOk && timeleft >= -1 && !GetConVarBool(g_hAllowRoundEndCvar))
@@ -493,7 +493,7 @@ public Action CS_OnTerminateRound(float &delay, CSRoundEndReason &reason)
 	//ServerCommand("bot_quota 0");
 	//CreateTimer(1.0, DelayedStuff2, INVALID_HANDLE, TIMER_FLAG_NO_MAPCHANGE);
 	
-	//return Plugin_Continue;
+	return Plugin_Continue;
 }
 
 public Action Event_OnRoundEnd(Handle event, const char[] name, bool dontBroadcast)
@@ -519,26 +519,26 @@ public void OnPlayerThink(int entity)
 }
 
 // OnRoundRestart
-public void Event_OnRoundStart(Handle event, const char[] name, bool dontBroadcast)
+public Action Event_OnRoundStart(Handle event, const char[] name, bool dontBroadcast)
 {
 	PrintToServer("[CK] ROUND START fired");
 	
 	if (!WeAreOk)
-		return;
+		return Plugin_Continue;
 	
 	//Fixing Bot quota changed by server, because new bot changes his name at that point when it's for a game_start reason
 	//This happens at mp_restartgame or at 1st replay on a map, done by a player alone. Even if bot joins same team.
 	//I didn't want to remove mp_restartgame command so, I am doing it this way.
 	//GameStartBool = true;
-	ServerCommand("bot_quota 0");
-	ServerCommand("bot_kick");
-	LoadReplays();
-	LoadInfoBot();
+	//ServerCommand("bot_quota 0");
+	//ServerCommand("bot_kick");
+	//LoadReplays();
+	//LoadInfoBot();
 	
-	CreateTimer(1.0, DelayedStuff2, INVALID_HANDLE, TIMER_FLAG_NO_MAPCHANGE);
+	//CreateTimer(1.0, DelayedStuff2, INVALID_HANDLE, TIMER_FLAG_NO_MAPCHANGE);
 	
 	int iEnt;
-	iEnt = -1;
+	//iEnt = -1;
 	//Still need this for many maps
 	for (int i = 0; i < sizeof(EntityList); i++)
 	{
@@ -555,21 +555,35 @@ public void Event_OnRoundStart(Handle event, const char[] name, bool dontBroadca
 	while ((iEnt = FindEntityByClassname(iEnt, "trigger_push")) != -1)
 	{
 		SDKHook(iEnt, SDKHook_Touch, OnTouchPushTrigger);
-		SDKHook(iEnt, SDKHook_EndTouch, OnEndTouchPushTrigger);
+		//SDKHook(iEnt, SDKHook_EndTouch, OnEndTouchPushTrigger);
 	}
 	
 	// Trigger Gravity Fix
-	iEnt = -1;
-	while ((iEnt = FindEntityByClassname(iEnt, "trigger_gravity")) != -1)
-	{
-		SDKHook(iEnt, SDKHook_EndTouch, OnEndTouchGravityTrigger);
-	}
+	//iEnt = -1;
+	//while ((iEnt = FindEntityByClassname(iEnt, "trigger_gravity")) != -1)
+	//{
+		//SDKHook(iEnt, SDKHook_EndTouch, OnEndTouchGravityTrigger);
+	//}
 	
 	RefreshZones();
 	
 	g_bRoundEnd = false;
-	//return Plugin_Continue;
-	return;
+	return Plugin_Continue;
+	//return;
+}
+
+public Action Event_OnFreezeEnd(Handle event, const char[] name, bool dontBroadcast)
+{
+	//Let'skick all
+	PrintToServer("[CK] FREEZETIME UP");
+	
+	//ServerCommand("bot_kick");
+	//ServerCommand("bot_quota 0");
+	//LoadReplays();
+	//LoadInfoBot();
+	//CreateTimer(1.0, DelayedStuff2, INVALID_HANDLE, TIMER_FLAG_NO_MAPCHANGE);
+	//return;
+	return Plugin_Continue;
 }
 
 //Trying to block surf_summer double restart on mp_restartgame
@@ -643,32 +657,31 @@ public Action OnTouchPushTrigger(int entity, int other)
 	return Plugin_Continue;
 }
 
-public Action OnEndTouchPushTrigger(int entity, int other)
-{
-	if (IsValidClient(other) && GetConVarBool(g_hTriggerPushFixEnable) == true)
-	{
-		if (IsFakeClient(other))
-			return Plugin_Handled;
+//public Action OnEndTouchPushTrigger(int entity, int other)
+//{
+	//if (IsValidClient(other) && GetConVarBool(g_hTriggerPushFixEnable) == true)
+	//{
+		//if (IsFakeClient(other))
+			//return Plugin_Handled;
 
-		if (IsValidEntity(entity))
-		{
-			g_bInPushTrigger[other] = false;
-		}
-		return Plugin_Handled;
-	}
+		//if (IsValidEntity(entity))
+		//{
+			//g_bInPushTrigger[other] = false;
+		//}
+		//return Plugin_Handled;
+	//}
+	//return Plugin_Continue;
+//}
 
-	return Plugin_Continue;
-}
-
-public Action OnEndTouchGravityTrigger(int entity, int other)
-{
-	if (IsValidClient(other) && !IsFakeClient(other))
-	{
-		if (!g_bNoClip[other] && GetConVarBool(g_hGravityFix))
-			return Plugin_Handled;
-	}
-	return Plugin_Continue;
-}
+//public Action OnEndTouchGravityTrigger(int entity, int other)
+//{
+	//if (IsValidClient(other) && !IsFakeClient(other))
+	//{
+		//if (!g_bNoClip[other] && GetConVarBool(g_hGravityFix))
+			//return Plugin_Handled;
+	//}
+	//return Plugin_Continue;
+//}
 
 // PlayerHurt 
 public Action Event_OnPlayerHurt(Handle event, const char[] name, bool dontBroadcast)

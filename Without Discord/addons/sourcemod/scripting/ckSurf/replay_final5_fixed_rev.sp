@@ -259,6 +259,8 @@ public void PlayRecord(int client, int type)
 	if (type == 1)
 		Format(sPath, sizeof(sPath), "%s%s_bonus_%i.rec", CK_REPLAY_PATH, g_szMapName, g_iBonusToReplay[g_iCurrentBonusReplayIndex]);
 	// He's currently recording. Don't start to play some record on him at the same time.
+	if (g_hRecording[client] != null || !IsFakeClient(client))
+		return;
 
 	int iFileHeader[FILE_HEADER_LENGTH];
 	BuildPath(Path_SM, sPath, sizeof(sPath), "%s", sPath);
