@@ -17,7 +17,7 @@
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
 # Changelog
-  - 01/06/20: Fixed ragdoll removal, a lil' translation mistyping, & round end/match start on regular maps.  
+  - 02/06/20: Fixed ragdoll removal, a lil' translation mistyping, & round end/match start on regular maps.  
   Added a raw "FakeClientCommandEx sm_clear" to prevent cheats whith another checkpoint plugin.  
   Currently trying to fix !goto command behavior.
   I should remove comments, be more precise, but hey I needed a lot of tests.  
