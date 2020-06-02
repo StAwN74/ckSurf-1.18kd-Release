@@ -21,7 +21,7 @@
   Added a raw "FakeClientCommandEx sm_clear" to prevent cheats whith another checkpoint plugin.  
   Currently trying to fix !goto command behavior.  
   I should remove comments, be more precise, but hey I needed a lot of tests.  
-  Discovered you should not try mp_restartgame on surf_summer -_- (Plugin blocks restart but surf_summer triggers a second one)  
+  Discovered you should not try mp_restartgame on surf_summer -_- (Plugin blocks restart but thise map triggers a second one)  
   - 16/01/20: Fixed weapon buy on regular maps like de_dust2,  and 'checkSpawns' log error. Plugin uses maps configs (cfg/sourcemod/ckSurf/map_types/) for respawn and round end. ck_autorespawn and ck_round_end are thus obsolete.
   - Note: In plugins/disabled, there is a ckSurf_slh_rev smx file (ckSurf_slnh_rev for non discord users).  
     You can use the this version instead of the regular one, if you have properly set sv_hibernate_when_empty 0 in server.cfg and in server's launch command parameters.  
