@@ -21,7 +21,7 @@
   Added a raw "FakeClientCommandEx sm_clear" to prevent cheats whith another checkpoint plugin.  
   I should remove comments, be more precise, but hey I needed a lot of tests.  
   Discovered you should not try mp_restartgame on surf_summer (Plugin blocks restart but this map triggers a 2d one)  
-  Currently importing this code from htcarnage: https://forums.alliedmods.net/showthread.php?p=2004356  
+  Currently importing this code from headline: https://forums.alliedmods.net/showthread.php?p=2323724  
   Latest version will be uploaded soon, currently testing: https://www.casimages.com/i/20060310072869578.png.html  
   - 16/01/20: Fixed weapon buy on regular maps like de_dust2,  and 'checkSpawns' log error. Plugin uses maps configs (cfg/sourcemod/ckSurf/map_types/) for respawn and round end. ck_autorespawn and ck_round_end are thus obsolete.
   - Note: In plugins/disabled, there is a ckSurf_slh_rev smx file (ckSurf_slnh_rev for non discord users).  
