@@ -22,7 +22,7 @@
   I should remove comments, be more precise, but hey I needed a lot of tests.  
   Discovered you should not try mp_restartgame on surf_summer (Plugin blocks restart but this map triggers a 2d one)  
   Currently importing this code from htcarnage: https://forums.alliedmods.net/showthread.php?p=2004356  
-  Latest results will upload in a couple of days): https://www.casimages.com/i/200603080127813129.png.html
+  Latest version will be uploaded in a couple of days), currently testing: https://www.casimages.com/i/20060310072869578.png.html
   - 16/01/20: Fixed weapon buy on regular maps like de_dust2,  and 'checkSpawns' log error. Plugin uses maps configs (cfg/sourcemod/ckSurf/map_types/) for respawn and round end. ck_autorespawn and ck_round_end are thus obsolete.
   - Note: In plugins/disabled, there is a ckSurf_slh_rev smx file (ckSurf_slnh_rev for non discord users).  
     You can use the this version instead of the regular one, if you have properly set sv_hibernate_when_empty 0 in server.cfg and in server's launch command parameters.  
