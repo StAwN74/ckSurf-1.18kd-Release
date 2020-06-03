@@ -3,7 +3,7 @@
   No memory leak, no need to fully unload plugin on regular maps.
   Find me / Discuss here: https://forums.alliedmods.net/member.php?u=107052. More info in the included Readme.
   Taking no credit except the fixing part of a good ol' car, see below:
-  - Replays related crashs fixed. mp_restartgame lag is being fixed, please wait.
+  - Replays related crashs fixed. mp_restartgame lag / new bot lag is being fixed, please wait.
   - Player & admin commands related issues fixed
   - Weapons and bots management reviewed to avoid errors & map crashs
   - Hooks/events updated, plugin now supports any kind of map
