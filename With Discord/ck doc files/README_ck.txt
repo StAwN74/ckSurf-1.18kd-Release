@@ -50,7 +50,7 @@ Quote from the script:
 // Force CT team function was intentionally forced off (cvar is still created), and server cvars are no longer forced by plugin, which now simply uses maps configs instead.
 // NB: Bots can have weapons when they respawn if you slay them sometimes; this is also intentional. Some maps like surf_mesa REALLY mess up with player weapons, and were causing issues.
 // This is, in one word (or four), a 'server crash free edition' of a great plugin.
-// 01/08/19
+// GoTo function by Headline, with his acceptation https://forums.alliedmods.net/showthread.php?p=2323724
 
 [Thanks]
 Every one listed above, and everyone at AlliedMods.
