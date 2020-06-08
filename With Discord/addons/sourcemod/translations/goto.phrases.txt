@@ -1,0 +1,95 @@
+"Phrases"
+{
+	"In Game Only"
+	{
+		"en"			"This command can only be used in game."
+	}
+	"Target Not Alive"
+	{
+		"#format"		"{1:N}"
+		"en"			"{1} is not alive."
+	}
+	"Invalid Target"
+	{
+		"#format"		"{1:s}"
+		"en"			"Could not find player {1}"
+	}
+	"User Not Alive"
+	{
+		"en"			"You must be alive to use this command."
+	}
+	"No Opposite Team"
+	{
+		"en"			"You may not target players on the opposite team."
+	}
+	"Teleport Request"
+	{
+		"#format"		"{1:N}"
+		"en"			"Sent a teleport request to {1}"
+	}
+	"No Requests"
+	{
+		"#format"		"{1:N}"
+		"en"			"{1} does not accept teleport requests."
+	}
+	"Cooldown"
+	{
+		"#format"		"{1:d}"
+		"en"			"You are in cool down period for {1} more seconds."
+	}
+	"Teleported"
+	{
+		"#format"		"{1:N}"
+		"en"			"You teleported to {1}. Type !tpb to teleport back to your last location."
+	}
+	"Teleport Denied"
+	{
+		"#format"		"{1:N}"
+		"en"			"{1} denied your teleport request."
+	}
+	"Inform Unblock"
+	{
+		"#format"		"{1:N}"
+		"en"			"You blocked {1}. Type !unblock {1} to unblock them."
+	}
+	"All Denied"
+	{
+		"#format"		"{1:N}"
+		"en"			"{1} does not allow players to teleport to him."
+	}
+	"All Denied 2"
+	{
+		"en"			"You blocked all players. Type !unblock all to allow requests again."
+	}
+	"All Accepted"
+	{
+		"en"			"You accepted all future requests without notification."
+	}
+	"All Unblocked"
+	{
+		"en"			"You will now receive teleport requests from players."
+	}
+	"Unblocked Player"
+	{
+		"#format"		"{1:N}"
+		"en"			"You unblocked {1}"
+	}
+	"No Saved Location"
+	{
+		"en"			"You do not have a saved location."
+	}
+	"Banned Player"
+	{
+		"en"			"You are banned from using this function"
+	}
+	"Ban Successful"
+	{
+		"#format"		"{1:s}"
+		"en"			"{1} successfully added to GoTo ban list."
+	}
+	"Unban Successful"
+	{
+		"#format"		"{1:s}"
+		"en"			"{1} successfully removed from GoTo ban list."
+	}
+}

@@ -545,17 +545,17 @@
 	"Goto1"
 	{
 		"#format"   "{1:c},{2:c},{3:c},{4:c}"
-		"en"        "[{1}CK{2}] {3}!goto{4} command is serverside disabled."
+		"en"        "[{1}CK{2}] {3}!gototest{4} command is serverside disabled."
 	}
 	"Goto2"
 	{
 		"#format"   "{1:c},{2:c},{3:c},{4:c}"
-		"en"        "[{1}CK{2}] You can't use {3}!goto{4} if player blocking is enabled."
+		"en"        "[{1}CK{2}] You can't use {3}!gototest{4} if player blocking is enabled."
 	}
 	"Goto3"
 	{
 		"#format"   "{1:c},{2:c},{3:c},{4:c}"
-		"en"        "[{1}CK{2}] You must {3}!stop{4} your timer to use !goto."
+		"en"        "[{1}CK{2}] You must {3}!stop{4} your timer to use !gototest."
 	}
 	"Goto4"
 	{
