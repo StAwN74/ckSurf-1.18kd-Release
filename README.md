@@ -5,11 +5,11 @@
   Taking no credit except the fixing part of a good ol' car, see below:
   - Replays related crashs fixed.
   - Player & admin commands related issues fixed. Some rcon commands (client 0) were fuzzy.
-  - Weapons and bots management reviewed to avoid errors & map crashs
-  - Hooks/events updated, plugin now supports any kind of map
-  - Timer handles and client indexes fixed
+  - Weapons and bots management reviewed to avoid errors & maps crashs.
+  - Hooks/events updated, plugin now supports any kind of map.
+  - Timer handles and client indexes fixed.
 
-Note: Now you have estimated start speed, a fixed goto command by Headline (see changelog), and a slower hud timer.  
+Note: Now you have colored estimated start speed, a fixed goto command by Headline (see changelog), and a slower hud timer.  
       I've noticed lighter server weight with this 0.2 secs timer (don't worry for your run, that only makes the server smoother.)  
       sm_clear console warning when starting a run is normal and harmless, it's a fix for a checkpoint plugin I needed.  
 
@@ -24,7 +24,7 @@ My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&autho
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
 # Changelog
-  - 08/06/20: Added Estimated Start Speed. Fixed sm_goto thx to Headline:  
+  - 08/06/20: Added Estimated Start Speed in player chat. Fixed Timer after spectate (cuz why not). Fixed sm_goto thx to Headline:  
   https://forums.alliedmods.net/showthread.php?p=2323724
   - 02/06/20: Fixed ragdoll removal, a lil' translation mistyping, & round end/match start on regular maps.  
   Added a raw "FakeClientCommandEx sm_clear" to prevent cheats whith another checkpoint plugin.  
