@@ -1200,11 +1200,14 @@ stock void StripAllWeapons(int client)
 
 public void MovementCheck(int client)
 {
-	MoveType mt;
-	mt = GetEntityMoveType(client);
-	if (mt == MOVETYPE_FLYGRAVITY)
+	if (IsValidClient(client))
 	{
-		Client_Stop(client, 1);
+		MoveType mt;
+		mt = GetEntityMoveType(client);
+		if (mt == MOVETYPE_FLYGRAVITY)
+		{
+			Client_Stop(client, 1);
+		}
 	}
 }
 
@@ -1212,8 +1215,11 @@ public void PlayButtonSound(int client)
 {
 	if (!GetConVarBool(g_hSoundEnabled))
 		return;
-		
+	
 	// Players button sound
+	if (!IsValidClient(client))
+		return;
+	
 	if (!IsFakeClient(client))
 	{
 		char buffer[255];
