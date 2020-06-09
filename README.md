@@ -9,7 +9,7 @@
   - Hooks/events updated, plugin now supports any kind of map.
   - Timer handles and client indexes fixed.
 
-Note: Now you have colored estimated start speed, a fixed goto command by Headline (see changelog), and a slower hud timer.  
+Note: Now you have colored start speed, a fixed goto command by Headline (see changelog), and a slower hud timer.  
       I've noticed lighter server weight with this 0.2 secs timer (don't worry for your run, that only makes the server smoother.)  
       sm_clear console warning when starting a run is normal and harmless, it's a fix for a checkpoint plugin I needed.  
 
