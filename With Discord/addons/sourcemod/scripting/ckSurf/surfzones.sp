@@ -77,7 +77,9 @@ public void CreateZoneEntity(int zoneIndex)
 public Action StartTouchTrigger(int caller, int activator)
 {
 	// Ignore dead players
-	if (!IsValidClient(activator) || IsFakeClient(activator))
+	if (!IsValidClient(activator))
+		return Plugin_Continue;
+	if (IsFakeClient(activator))
 		return Plugin_Continue;
 	
 	char sTargetName[256];
@@ -402,35 +404,38 @@ public Action BeamBoxAll(Handle timer, any data)
 			getZoneTeamColor(g_mapZones[i][Team], tzColor);
 			for (int p = 1; p <= MaxClients; p++)
 			{
-				if (IsValidClient(p) && !IsFakeClient(p))
+				if (IsValidClient(p))
 				{
-					// Only display zone to client if the client is in the zones zonegroup
-					if (g_iClientInZone[p][2] != g_mapZones[i][zoneGroup])
-						continue;
-					if ( g_mapZones[i][Vis] == 2 ||  g_mapZones[i][Vis] == 3)
+					if (!IsFakeClient(p))
 					{
-						if (GetClientTeam(p) ==  g_mapZones[i][Vis] && g_ClientSelectedZone[p] != i)
+						// Only display zone to client if the client is in the zones zonegroup
+						if (g_iClientInZone[p][2] != g_mapZones[i][zoneGroup])
+							continue;
+						if ( g_mapZones[i][Vis] == 2 ||  g_mapZones[i][Vis] == 3)
 						{
-							float buffer_a[3], buffer_b[3];
-							for (int x = 0; x < 3; x++)
+							if (GetClientTeam(p) ==  g_mapZones[i][Vis] && g_ClientSelectedZone[p] != i)
 							{
-								buffer_a[x] = g_mapZones[i][PointA][x];
-								buffer_b[x] = g_mapZones[i][PointB][x];
+								float buffer_a[3], buffer_b[3];
+								for (int x = 0; x < 3; x++)
+								{
+									buffer_a[x] = g_mapZones[i][PointA][x];
+									buffer_b[x] = g_mapZones[i][PointB][x];
+								}
+								TE_SendBeamBoxToClient(p, buffer_a, buffer_b, g_BeamSprite, g_HaloSprite, 0, 30, GetConVarFloat(g_hChecker), 5.0, 5.0, 2, 1.0, tzColor, 0, 0, i);
 							}
-							TE_SendBeamBoxToClient(p, buffer_a, buffer_b, g_BeamSprite, g_HaloSprite, 0, 30, GetConVarFloat(g_hChecker), 5.0, 5.0, 2, 1.0, tzColor, 0, 0, i);
 						}
-					}
-					else
-					{
-						if (g_ClientSelectedZone[p] != i)
+						else
 						{
-							float buffer_a[3], buffer_b[3];
-							for (int x = 0; x < 3; x++)
+							if (g_ClientSelectedZone[p] != i)
 							{
-								buffer_a[x] = g_mapZones[i][PointA][x];
-								buffer_b[x] = g_mapZones[i][PointB][x];
+								float buffer_a[3], buffer_b[3];
+								for (int x = 0; x < 3; x++)
+								{
+									buffer_a[x] = g_mapZones[i][PointA][x];
+									buffer_b[x] = g_mapZones[i][PointB][x];
+								}
+								TE_SendBeamBoxToClient(p, buffer_a, buffer_b, g_BeamSprite, g_HaloSprite, 0, 30, GetConVarFloat(g_hChecker), 5.0, 5.0, 2, 1.0, zColor, 0, 0, i);
 							}
-							TE_SendBeamBoxToClient(p, buffer_a, buffer_b, g_BeamSprite, g_HaloSprite, 0, 30, GetConVarFloat(g_hChecker), 5.0, 5.0, 2, 1.0, zColor, 0, 0, i);
 						}
 					}
 				}
@@ -522,7 +527,9 @@ public void BeamBox_OnPlayerRunCmd(int client)
 stock void TE_SendBeamBoxToClient(int client, float uppercorner[3], float bottomcorner[3], int ModelIndex, int HaloIndex, int StartFrame, int FrameRate, float Life, float Width, float EndWidth, int FadeLength, float Amplitude, const int Color[4], int Speed, int type, int zoneid = -1)
 {
 	//0 = Do not display zones, 1 = Display the lower edges of zones, 2 = Display whole zone
-	if (!IsValidClient(client) || IsFakeClient(client) || GetConVarInt(g_hZoneDisplayType) < 1)
+	if (!IsValidClient(client))
+		return;
+	if (IsFakeClient(client) || GetConVarInt(g_hZoneDisplayType) < 1)
 		return;
 	
 	if (GetConVarInt(g_hZoneDisplayType) > 1 || type == 1) // All sides

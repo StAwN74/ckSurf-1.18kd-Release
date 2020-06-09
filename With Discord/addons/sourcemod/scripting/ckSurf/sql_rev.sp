@@ -2113,7 +2113,9 @@ public void ContinueRecalc(int client)
 	else
 	{
 		//ON CONNECT
-		if (!IsValidClient(client) || IsFakeClient(client))
+		if (!IsValidClient(client))
+			return;
+		if (IsFakeClient(client))
 			return;
 		float diff = GetGameTime() - g_fMapStartTime + 1.5;
 		if (GetClientTime(client) < diff)
@@ -2588,19 +2590,6 @@ public void sql_insertChallengesCallback(Handle owner, Handle hndl, const char[]
 		return;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -3903,13 +3892,16 @@ public void SQL_selectCheckpointsCallback(Handle owner, Handle hndl, const char[
 		// Seach for next client to load
 		for (int i = 1; i < MAXPLAYERS + 1; i++)
 		{
-			if (IsValidClient(i) && !IsFakeClient(i) && !g_bSettingsLoaded[i] && !g_bLoadingSettings[i])
+			if (IsValidClient(i))
 			{
-				char szSteamID[32];
-				GetClientAuthId(i, AuthId_Steam2, szSteamID, 32, true);
-				db_viewPersonalRecords(i, szSteamID, g_szMapName);
-				g_bLoadingSettings[i] = true;
-				break;
+				if (!IsFakeClient(i) && !g_bSettingsLoaded[i] && !g_bLoadingSettings[i])
+				{
+					char szSteamID[32];
+					GetClientAuthId(i, AuthId_Steam2, szSteamID, 32, true);
+					db_viewPersonalRecords(i, szSteamID, g_szMapName);
+					g_bLoadingSettings[i] = true;
+					break;
+				}
 			}
 		}
 	}		
@@ -5316,16 +5308,6 @@ public void SQLTxn_ZoneRemovalFailed(Handle db, any client, int numQueries, cons
 	PrintToServer("[ckSurf] Zone Removal Failed. Error: %s", error);
 	return;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 ///////////////////////

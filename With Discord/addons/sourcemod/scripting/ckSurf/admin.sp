@@ -24,11 +24,14 @@ public Action Admin_giveTitle(int client, int args)
 		char szName[MAX_NAME_LENGTH], id[8];
 		for (int i = 1; i < MAXPLAYERS; i++)
 		{
-			if (IsValidClient(i) && !IsFakeClient(i))
+			if (IsValidClient(i))
 			{
-				IntToString(i, id, 8);
-				GetClientName(i, szName, MAX_NAME_LENGTH);
-				AddMenuItem(playerMenu, id, szName);
+				if (!IsFakeClient(i))
+				{
+					IntToString(i, id, 8);
+					GetClientName(i, szName, MAX_NAME_LENGTH);
+					AddMenuItem(playerMenu, id, szName);
+				}
 			}
 		}
 		SetMenuExitButton(playerMenu, true);
@@ -45,13 +48,16 @@ public Action Admin_giveTitle(int client, int args)
 		{
 			for (int i = 1; i < (MAXPLAYERS + 1); i++)
 			{
-				if (IsValidClient(i) && !IsFakeClient(i))
+				if (IsValidClient(i))
 				{
-					GetClientAuthId(i, AuthId_Steam2, g_szAdminSelectedSteamID[client], MAX_NAME_LENGTH, true);
-					if (StrEqual(g_szAdminSelectedSteamID[client], arg, false))
+					if (!IsFakeClient(i))
 					{
-						g_iAdminSelectedClient[client] = i;
-						break;
+						GetClientAuthId(i, AuthId_Steam2, g_szAdminSelectedSteamID[client], MAX_NAME_LENGTH, true);
+						if (StrEqual(g_szAdminSelectedSteamID[client], arg, false))
+						{
+							g_iAdminSelectedClient[client] = i;
+							break;
+						}
 					}
 				}
 			}
@@ -61,14 +67,17 @@ public Action Admin_giveTitle(int client, int args)
 		{
 			for (int i = 1; i < (MAXPLAYERS + 1); i++)
 			{
-				if (IsValidClient(i) && !IsFakeClient(i))
+				if (IsValidClient(i))
 				{
-					GetClientName(i, sResult, MAX_NAME_LENGTH);
-					if (StrEqual(sResult, arg, false))
+					if (!IsFakeClient(i))
 					{
-						GetClientAuthId(i, AuthId_Steam2, g_szAdminSelectedSteamID[client], MAX_NAME_LENGTH, true);
-						g_iAdminSelectedClient[client] = i;
-						break;
+						GetClientName(i, sResult, MAX_NAME_LENGTH);
+						if (StrEqual(sResult, arg, false))
+						{
+							GetClientAuthId(i, AuthId_Steam2, g_szAdminSelectedSteamID[client], MAX_NAME_LENGTH, true);
+							g_iAdminSelectedClient[client] = i;
+							break;
+						}
 					}
 				}
 			}
@@ -163,11 +172,14 @@ public Action Admin_deleteTitles(int client, int args)
 		char szName[MAX_NAME_LENGTH], id[2];
 		for (int i = 1; i < (MAXPLAYERS + 1); i++)
 		{
-			if (IsValidClient(i) && !IsFakeClient(i))
+			if (IsValidClient(i))
 			{
-				IntToString(i, id, 2);
-				GetClientName(i, szName, MAX_NAME_LENGTH);
-				AddMenuItem(playerMenu, id, szName);
+				if (!IsFakeClient(i))
+				{
+					IntToString(i, id, 2);
+					GetClientName(i, szName, MAX_NAME_LENGTH);
+					AddMenuItem(playerMenu, id, szName);
+				}
 			}
 		}
 		SetMenuExitButton(playerMenu, true);
@@ -184,14 +196,17 @@ public Action Admin_deleteTitles(int client, int args)
 		{
 			for (int i = 1; i < (MAXPLAYERS + 1); i++)
 			{
-				if (IsValidClient(i) && !IsFakeClient(i))
+				if (IsValidClient(i))
 				{
-					GetClientAuthId(i, AuthId_Steam2, g_szAdminSelectedSteamID[client], MAX_NAME_LENGTH, true);
-					//GetClientAuthString(i, g_szAdminSelectedSteamID[client], MAX_NAME_LENGTH, true);
-					if (StrEqual(g_szAdminSelectedSteamID[client], arg, false))
+					if (!IsFakeClient(i))
 					{
-						g_iAdminSelectedClient[client] = i;
-						break;
+						GetClientAuthId(i, AuthId_Steam2, g_szAdminSelectedSteamID[client], MAX_NAME_LENGTH, true);
+						//GetClientAuthString(i, g_szAdminSelectedSteamID[client], MAX_NAME_LENGTH, true);
+						if (StrEqual(g_szAdminSelectedSteamID[client], arg, false))
+						{
+							g_iAdminSelectedClient[client] = i;
+							break;
+						}
 					}
 				}
 			}
@@ -201,15 +216,18 @@ public Action Admin_deleteTitles(int client, int args)
 		{
 			for (int i = 1; i < (MAXPLAYERS + 1); i++)
 			{
-				if (IsValidClient(i) && !IsFakeClient(i))
+				if (IsValidClient(i))
 				{
-					GetClientName(i, sResult, MAX_NAME_LENGTH);
-					if (StrEqual(sResult, arg, false))
+					if (!IsFakeClient(i))
 					{
-						GetClientAuthId(i, AuthId_Steam2, g_szAdminSelectedSteamID[client], MAX_NAME_LENGTH, true);
-						//GetClientAuthString(i, g_szAdminSelectedSteamID[client], MAX_NAME_LENGTH, true);
-						g_iAdminSelectedClient[client] = i;
-						break;
+						GetClientName(i, sResult, MAX_NAME_LENGTH);
+						if (StrEqual(sResult, arg, false))
+						{
+							GetClientAuthId(i, AuthId_Steam2, g_szAdminSelectedSteamID[client], MAX_NAME_LENGTH, true);
+							//GetClientAuthString(i, g_szAdminSelectedSteamID[client], MAX_NAME_LENGTH, true);
+							g_iAdminSelectedClient[client] = i;
+							break;
+						}
 					}
 				}
 			}
@@ -246,11 +264,14 @@ public Action Admin_deleteTitle(int client, int args)
 		char szName[MAX_NAME_LENGTH], id[2];
 		for (int i = 1; i < (MAXPLAYERS + 1); i++)
 		{
-			if (IsValidClient(i) && !IsFakeClient(i))
+			if (IsValidClient(i))
 			{
-				IntToString(i, id, 2);
-				GetClientName(i, szName, MAX_NAME_LENGTH);
-				AddMenuItem(playerMenu, id, szName);
+				if (!IsFakeClient(i))
+				{
+					IntToString(i, id, 2);
+					GetClientName(i, szName, MAX_NAME_LENGTH);
+					AddMenuItem(playerMenu, id, szName);
+				}
 			}
 		}
 		SetMenuExitButton(playerMenu, true);
@@ -267,14 +288,17 @@ public Action Admin_deleteTitle(int client, int args)
 		{
 			for (int i = 1; i < (MAXPLAYERS + 1); i++)
 			{
-				if (IsValidClient(i) && !IsFakeClient(i))
+				if (IsValidClient(i))
 				{
-					GetClientAuthId(i, AuthId_Steam2, g_szAdminSelectedSteamID[client], MAX_NAME_LENGTH, true);
-					//GetClientAuthString(i, g_szAdminSelectedSteamID[client], MAX_NAME_LENGTH, true);
-					if (StrEqual(g_szAdminSelectedSteamID[client], arg, false))
+					if (!IsFakeClient(i))
 					{
-						g_iAdminSelectedClient[client] = i;
-						break;
+						GetClientAuthId(i, AuthId_Steam2, g_szAdminSelectedSteamID[client], MAX_NAME_LENGTH, true);
+						//GetClientAuthString(i, g_szAdminSelectedSteamID[client], MAX_NAME_LENGTH, true);
+						if (StrEqual(g_szAdminSelectedSteamID[client], arg, false))
+						{
+							g_iAdminSelectedClient[client] = i;
+							break;
+						}
 					}
 				}
 			}
@@ -284,15 +308,18 @@ public Action Admin_deleteTitle(int client, int args)
 		{
 			for (int i = 1; i < (MAXPLAYERS + 1); i++)
 			{
-				if (IsValidClient(i) && !IsFakeClient(i))
+				if (IsValidClient(i))
 				{
-					GetClientName(i, sResult, MAX_NAME_LENGTH);
-					if (StrEqual(sResult, arg, false))
+					if (!IsFakeClient(i))
 					{
-						GetClientAuthId(i, AuthId_Steam2, g_szAdminSelectedSteamID[client], MAX_NAME_LENGTH, true);
-						//GetClientAuthString(i, g_szAdminSelectedSteamID[client], MAX_NAME_LENGTH, true);
-						g_iAdminSelectedClient[client] = i;
-						break;
+						GetClientName(i, sResult, MAX_NAME_LENGTH);
+						if (StrEqual(sResult, arg, false))
+						{
+							GetClientAuthId(i, AuthId_Steam2, g_szAdminSelectedSteamID[client], MAX_NAME_LENGTH, true);
+							//GetClientAuthString(i, g_szAdminSelectedSteamID[client], MAX_NAME_LENGTH, true);
+							g_iAdminSelectedClient[client] = i;
+							break;
+						}
 					}
 				}
 			}
@@ -551,9 +578,9 @@ public void ckAdminMenu(int client)
 	menuItemNumber++;
 
 	if (GetConVarBool(g_hGoToServer))
-		Format(szTmp, sizeof(szTmp), "[%i.] !goto command  -  Enabled", menuItemNumber);
+		Format(szTmp, sizeof(szTmp), "[%i.] !gototest command  -  Enabled", menuItemNumber);
 	else
-		Format(szTmp, sizeof(szTmp), "[%i.] !goto command  -  Disabled", menuItemNumber);
+		Format(szTmp, sizeof(szTmp), "[%i.] !gototest command  -  Disabled", menuItemNumber);
 	AddMenuItem(adminmenu, szTmp, szTmp);
 	menuItemNumber++;
 
