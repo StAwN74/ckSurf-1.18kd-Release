@@ -7,7 +7,7 @@
   - Player & admin commands related issues fixed. Some rcon commands (client 0) were fuzzy.
   - Weapons and bots management reviewed to avoid errors & maps crashs.
   - Hooks/events updated, plugin now supports any kind of map.
-  - Timer handles and client indexes fixed.
+  - Timer handles and client indexes fixed. Still need to look deeper into bot indexes.
 
 Note: Now you have colored start speed, a fixed goto command by Headline (see changelog), and a slower hud timer.  
       I've noticed lighter server weight with this 0.2 secs timer (don't worry for your run, that only makes the server smoother.)  
