@@ -758,7 +758,7 @@ char RGB_COLOR_NAMES[][] =  // Store RGB color names in an array also
 #include "ckSurf/buttonpress.sp"
 #include "ckSurf/sql_rev.sp"
 #include "ckSurf/timer_final_revAT02.sp"
-#include "ckSurf/replay_final5_fixed_reve.sp"
+#include "ckSurf/replay_final5_fixed_reveCOR.sp"
 #include "ckSurf/surfzones.sp"
 #include "hl_goto2.sp"
 
