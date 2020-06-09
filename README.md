@@ -11,7 +11,7 @@
 
 Note: Now you have estimated start speed, a fixed goto command by Headline (see changelog), and a slower hud timer.  
       I've noticed lighter server weight with this 0.2 secs timer (don't worry for your run, that only makes the server smoother.)  
-      sm_clear console warning when starting a run is normal and harmless, it's a fix for a checkpoint plugin that could be used.  
+      sm_clear console warning when starting a run is normal and harmless, it's a fix for a checkpoint plugin I needed.  
 
 My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&author=St00ne&description=&search=1
 
