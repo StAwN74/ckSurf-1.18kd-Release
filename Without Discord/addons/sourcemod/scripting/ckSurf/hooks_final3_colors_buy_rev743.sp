@@ -759,7 +759,10 @@ public Action DelayedStuff2(Handle timer)
 
 public Action LoadReplaysFullTimer(Handle timer)
 {
+	//setBotQuota();
 	LoadReplays();
+	//LoadInfoBot();
+	//PrintToServer("[CK] Bots successfully reloaded.");
 }
 
 //Maybe readd InfoBot too? or he might be messed up at map restart
