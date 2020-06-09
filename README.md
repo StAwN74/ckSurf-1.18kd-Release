@@ -3,11 +3,11 @@
   No memory leak, no need to fully unload plugin on regular maps.
   Find me / Discuss here: https://forums.alliedmods.net/member.php?u=107052. More info in the included Readme.
   Taking no credit except the fixing part of a good ol' car, see below:
-  - Replays related crashs fixed.
+  - Replays related crashs fixed. Trails removed as in other forks, for performance.
   - Player & admin commands related issues fixed. Some rcon commands (client 0) were fuzzy.
   - Weapons and bots management reviewed to avoid errors & maps crashs.
   - Hooks/events updated, plugin now supports any kind of map.
-  - Timer handles and client indexes fixed. Still need to look deeper into bot indexes.
+  - Timer handles and client indexes fixed.
 
 Note: Now you have colored start speed, a fixed goto command by Headline (see changelog), and a slower hud timer.  
       I've noticed lighter server weight with this 0.2 secs timer (don't worry for your run, that only makes the server smoother.)  
@@ -25,6 +25,9 @@ My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&autho
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
 # Changelog
+  - 09/06/20: Fixed Bots quota, plugin now doesn't mess with bots IDs.  
+  You still need to change map on server start to work perfectly, or just wait for second map.
+  
   - 08/06/20: Added 'Estimated Start Speed' in player chat. Fixed Timer after spectate.  
   
   - 02/06/20: Fixed ragdoll removal, a lil' translation mistyping, & round end/match start on regular maps.  
