@@ -1727,7 +1727,7 @@ public void OnSettingChanged(Handle convar, const char[] oldValue, const char[] 
 		Format(color, 28, "%s", newValue[0]);
 		StringRGBtoInt(color, g_iZoneColors[0]);
 	}
-	else if (convar == g_hRecordBotTrail) {
+	/*else if (convar == g_hRecordBotTrail) {
 		if (GetConVarBool(g_hRecordBotTrail) && IsValidClient(g_RecordBot) && g_hBotTrail[0] == null)
 		{
 			g_hBotTrail[0] = CreateTimer(5.0 , ReplayTrailRefresh, GetClientUserId(g_RecordBot), TIMER_REPEAT | TIMER_FLAG_NO_MAPCHANGE);
@@ -1750,7 +1750,7 @@ public void OnSettingChanged(Handle convar, const char[] oldValue, const char[] 
 				CloseHandle(g_hBotTrail[1]);
 			g_hBotTrail[1] = null;
 		}
-	}
+	}*/
 	else if (convar == g_hAutoVIPFlag) {
 		AdminFlag flag;
 		g_bAutoVIPFlag = FindFlagByChar(newValue[0], flag);
