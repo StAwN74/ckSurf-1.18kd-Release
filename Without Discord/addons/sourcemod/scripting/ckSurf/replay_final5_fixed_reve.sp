@@ -718,6 +718,7 @@ public void RecordReplay (int client, int &buttons, int &subtype, int &seed, int
 		PushArrayArray(g_hRecording[client], iFrame[0], view_as<int>(FrameInfo));
 		g_RecordedTicks[client]++;
 		
+		//Requested by Freak.exe & ZZK Community
 		//Getting RoundToNearest is not mandatory for the calc
 		if (GetConVarBool(g_hEstimatedStartSpeed) && g_RecordedTicks[client] == 1 && g_bTimeractivated[client] && g_fLastSpeed[client] > 0.0)
 		{
