@@ -21,7 +21,7 @@ Note: Now you have estimated start speed, a fixed goto command by Headline (see 
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
 # Changelog
-  - 09/06/20: Aded Estimated Start Speed. Fixed sm_goto thx to Headline.
+  - 08/06/20: Aded Estimated Start Speed. Fixed sm_goto thx to Headline.
   - 02/06/20: Fixed ragdoll removal, a lil' translation mistyping, & round end/match start on regular maps.  
   Added a raw "FakeClientCommandEx sm_clear" to prevent cheats whith another checkpoint plugin.  
   I should remove comments, be more precise, but hey I needed a lot of tests.  
