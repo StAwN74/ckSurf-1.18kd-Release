@@ -14,6 +14,7 @@ Note: Now you have colored start speed, a fixed goto command by Headline (see ch
       sm_clear console warning when starting a run is normal and harmless, it's a fix for a checkpoint plugin I needed.  
 
 Thanks to ZZK community and Freak.exe for testing, and support.  
+Thanks to Headline for his sm_goto:  https://forums.alliedmods.net/showthread.php?p=2323724  
 My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&author=St00ne&description=&search=1
 
 # Install 🏄
@@ -25,7 +26,6 @@ My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&autho
 
 # Changelog
   - 08/06/20: Added 'Estimated Start Speed' in player chat. Fixed Timer after spectate.  
-  Thanks to Headline for his sm_goto:  https://forums.alliedmods.net/showthread.php?p=2323724
   - 02/06/20: Fixed ragdoll removal, a lil' translation mistyping, & round end/match start on regular maps.  
   Added a raw "FakeClientCommandEx sm_clear" to prevent cheats whith another checkpoint plugin.  
   Discovered you should not try mp_restartgame on surf_summer (laggy + annoying bot is forcing rejoin at round restart).  
