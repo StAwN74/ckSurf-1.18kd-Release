@@ -305,7 +305,7 @@ public void PlayRecord(int client, int type)
 	//SDKHook(client, SDKHook_WeaponCanSwitchTo, Hook_WeaponCanSwitchTo);
 	
 	// Disarm bot
-	//Client_RemoveAllWeapons(client);
+	Client_RemoveAllWeapons(client);
 	
 	// Respawn it to get it moving!
 	if (IsValidClient(client))
@@ -895,7 +895,7 @@ public void PlayReplay(int client, int &buttons, int &subtype, int &seed, int &i
 			
 			if (g_BotMimicTick[client] > 0)
 			{
-				//Client_RemoveAllWeapons(client);
+				Client_RemoveAllWeapons(client);
 			}
 			else
 			{
@@ -910,7 +910,7 @@ public void PlayReplay(int client, int &buttons, int &subtype, int &seed, int &i
 				}
 				else
 				{
-					//Client_RemoveAllWeapons(client);
+					Client_RemoveAllWeapons(client);
 				}
 			}
 		}
