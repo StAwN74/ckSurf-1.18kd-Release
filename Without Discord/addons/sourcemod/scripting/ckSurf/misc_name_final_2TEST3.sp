@@ -3402,7 +3402,6 @@ public void CheckpointToSpec(int client, char[] buffer)
 		if (IsValidClient(x))
 		{
 			if  (!IsPlayerAlive(x))
-									  
 			{
 				SpecMode = GetEntProp(x, Prop_Send, "m_iObserverMode");
 				if (SpecMode == 4 || SpecMode == 5)
