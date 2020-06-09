@@ -1374,7 +1374,7 @@ public void refreshTrailClient(int client)
 	}
 }
 
-void refreshTrailBot(int bot)
+/*void refreshTrailBot(int bot)
 {
 
 	if (!IsValidClient(bot))
@@ -1426,7 +1426,7 @@ void refreshTrailBot(int bot)
 			}
 		}
 	}
-}
+}*/
 
 public void toggleTrail(int client)
 {

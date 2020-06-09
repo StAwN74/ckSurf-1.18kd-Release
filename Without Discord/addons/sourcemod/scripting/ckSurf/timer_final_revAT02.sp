@@ -1,44 +1,44 @@
-public Action ReplayTrailRefresh(Handle timer, int userid)
-{
-	int client = GetClientOfUserId(userid);
-	if (client == 0)
-	{
-		CloseHandle(g_hBotTrail[0]);
-		g_hBotTrail[0] = null;
-		return Plugin_Stop;
-	}
-	if (!IsValidClient(client))
-	{
-		CloseHandle(g_hBotTrail[0]);
-		g_hBotTrail[0] = null;
-		return Plugin_Stop;
-	}
-	
-	if (g_bReplayAtEnd[client])
-		return Plugin_Stop;
-	
-	if (client == g_BonusBot)
-	{
-		if (GetConVarBool(g_hBonusBotTrail))
-			refreshTrailBot(client);
-		else
-		{
-			CloseHandle(g_hBotTrail[1]);
-			g_hBotTrail[1] = null;
-		}
-	}
-	else if (client == g_RecordBot)
-	{
-		if (GetConVarBool(g_hRecordBotTrail))
-			refreshTrailBot(client);
-		else
-		{
-			CloseHandle(g_hBotTrail[0]);
-			g_hBotTrail[0] = null;
-		}
-	}
-	return Plugin_Continue;
-}
+//public Action ReplayTrailRefresh(Handle timer, int userid)
+//{
+	//int client = GetClientOfUserId(userid);
+	//if (client == 0)
+	//{
+		//CloseHandle(g_hBotTrail[0]);
+		//g_hBotTrail[0] = null;
+		//return Plugin_Stop;
+	//}
+	//if (!IsValidClient(client))
+	//{
+		//CloseHandle(g_hBotTrail[0]);
+		//g_hBotTrail[0] = null;
+		//return Plugin_Stop;
+	//}
+	//
+	//if (g_bReplayAtEnd[client])
+		//return Plugin_Stop;
+	//
+	//if (client == g_BonusBot)
+	//{
+		//if (GetConVarBool(g_hBonusBotTrail))
+			//refreshTrailBot(client);
+		//else
+		//{
+			//CloseHandle(g_hBotTrail[1]);
+			//g_hBotTrail[1] = null;
+		//}
+	//}
+	//else if (client == g_RecordBot)
+	//{
+		//if (GetConVarBool(g_hRecordBotTrail))
+			//refreshTrailBot(client);
+		//else
+		//{
+			//CloseHandle(g_hBotTrail[0]);
+			//g_hBotTrail[0] = null;
+		//}
+	//}
+	//return Plugin_Continue;
+//}
 
 public Action reloadRank(Handle timer, any userid)
 {

@@ -89,7 +89,7 @@ public void StopRecording(int client)
 		return;
 	
 	CloseHandle(g_hRecording[client]);
-	CloseHandle(g_hRecordingAdditionalTeleport[client]);	
+	CloseHandle(g_hRecordingAdditionalTeleport[client]);
 	g_hRecording[client] = null;
 	g_hRecordingAdditionalTeleport[client] = null;
 
@@ -226,6 +226,7 @@ public void LoadReplays()
 		CloseHandle(hFilex);
 	}
 	hFilex = null;
+	delete hFilex;
 
 	// Check if bonus replays exists
 	for (int i = 1; i < g_mapZoneGroupCount; i++)
@@ -494,8 +495,8 @@ public void LoadRecordReplay()
 	if (IsValidClient(g_RecordBot))
 	{
 		// Set trail
-		if (GetConVarBool(g_hRecordBotTrail) && g_hBotTrail[0] == null)
-			g_hBotTrail[0] = CreateTimer(5.0 , ReplayTrailRefresh, GetClientUserId(g_RecordBot), TIMER_REPEAT);
+		//if (GetConVarBool(g_hRecordBotTrail) && g_hBotTrail[0] == null)
+			//g_hBotTrail[0] = CreateTimer(5.0 , ReplayTrailRefresh, GetClientUserId(g_RecordBot), TIMER_REPEAT);
 			
 		char clantag[100];
 		CS_GetClientClanTag(g_RecordBot, clantag, sizeof(clantag));
@@ -556,10 +557,10 @@ public void LoadBonusReplay()
 	
 	if (IsValidClient(g_BonusBot))
 	{
-		if (GetConVarBool(g_hBonusBotTrail) && g_hBotTrail[1] == null)
-		{
-			g_hBotTrail[1] = CreateTimer(5.0 , ReplayTrailRefresh, GetClientUserId(g_BonusBot), TIMER_REPEAT);
-		}
+		//if (GetConVarBool(g_hBonusBotTrail) && g_hBotTrail[1] == null)
+		//{
+			//g_hBotTrail[1] = CreateTimer(5.0 , ReplayTrailRefresh, GetClientUserId(g_BonusBot), TIMER_REPEAT);
+		//}
 
 		char clantag[100];
 		CS_GetClientClanTag(g_BonusBot, clantag, sizeof(clantag));
