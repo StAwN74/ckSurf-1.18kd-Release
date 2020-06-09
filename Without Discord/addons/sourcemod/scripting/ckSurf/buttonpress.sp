@@ -120,18 +120,21 @@ public void CL_OnEndTimerPress(int client)
 	{
 		for (int i = 1; i <= MaxClients; i++)
 		{
-			if (IsValidClient(i) && !IsPlayerAlive(i))
+			if (IsValidClient(i))
 			{
-				int SpecMode = GetEntProp(i, Prop_Send, "m_iObserverMode");
-				if (SpecMode == 4 || SpecMode == 5)
+				if (!IsPlayerAlive(i))
 				{
-					int Target = GetEntPropEnt(i, Prop_Send, "m_hObserverTarget");
-					if (Target == client)
+					int SpecMode = GetEntProp(i, Prop_Send, "m_iObserverMode");
+					if (SpecMode == 4 || SpecMode == 5)
 					{
-						if (Target == g_RecordBot)
-							PrintToChat(i, "%t", "ReplayFinishingMsg", MOSSGREEN, WHITE, LIMEGREEN, g_szReplayName, GRAY, LIMEGREEN, g_szReplayTime, GRAY);
-						if (Target == g_BonusBot)
-							PrintToChat(i, "%t", "ReplayFinishingMsgBonus", MOSSGREEN, WHITE, LIMEGREEN, g_szBonusName, GRAY, YELLOW, g_szZoneGroupName[g_iClientInZone[g_BonusBot][2]], GRAY, LIMEGREEN, g_szBonusTime, GRAY);
+						int Target = GetEntPropEnt(i, Prop_Send, "m_hObserverTarget");
+						if (Target == client)
+						{
+							if (Target == g_RecordBot)
+								PrintToChat(i, "%t", "ReplayFinishingMsg", MOSSGREEN, WHITE, LIMEGREEN, g_szReplayName, GRAY, LIMEGREEN, g_szReplayTime, GRAY);
+							if (Target == g_BonusBot)
+								PrintToChat(i, "%t", "ReplayFinishingMsgBonus", MOSSGREEN, WHITE, LIMEGREEN, g_szBonusName, GRAY, YELLOW, g_szZoneGroupName[g_iClientInZone[g_BonusBot][2]], GRAY, LIMEGREEN, g_szBonusTime, GRAY);
+						}
 					}
 				}
 			}
@@ -330,30 +333,33 @@ public void CL_OnEndTimerPress(int client)
 			SetEntityRenderColor(client, 255, 255, 255, 255);
 			for (int i = 1; i <= MaxClients; i++)
 			{
-				if (IsValidClient(i) && i != client && i != g_RecordBot && i != g_BonusBot)
+				if (IsValidClient(i))
 				{
-					if (StrEqual(g_szSteamID[i], g_szChallenge_OpponentID[client]))
+					if (i != client && i != g_RecordBot && i != g_BonusBot && i != g_InfoBot)
 					{
-						g_bChallenge[client] = false;
-						g_bChallenge[i] = false;
-						SetEntityRenderColor(i, 255, 255, 255, 255);
-						db_insertPlayerChallenge(client);
-						GetClientName(i, szNameOpponent, MAX_NAME_LENGTH);
-						for (int k = 1; k <= MaxClients; k++)
-							if (IsValidClient(k))
-								PrintToChat(k, "%t", "ChallengeW", RED, WHITE, MOSSGREEN, szName, WHITE, MOSSGREEN, szNameOpponent, WHITE);
-						
-						if (g_Challenge_Bet[client] > 0)
+						if (StrEqual(g_szSteamID[i], g_szChallenge_OpponentID[client]))
 						{
-							int lostpoints = g_Challenge_Bet[client] * g_pr_PointUnit;
-							for (int j = 1; j <= MaxClients; j++)
-								if (IsValidClient(j))
-									PrintToChat(j, "%t", "ChallengeL", MOSSGREEN, WHITE, PURPLE, szNameOpponent, GRAY, RED, lostpoints, GRAY);
-							CreateTimer(0.5, UpdatePlayerProfile, GetClientUserId(i), TIMER_FLAG_NO_MAPCHANGE);
-							g_pr_showmsg[client] = true;
+							g_bChallenge[client] = false;
+							g_bChallenge[i] = false;
+							SetEntityRenderColor(i, 255, 255, 255, 255);
+							db_insertPlayerChallenge(client);
+							GetClientName(i, szNameOpponent, MAX_NAME_LENGTH);
+							for (int k = 1; k <= MaxClients; k++)
+								if (IsValidClient(k))
+									PrintToChat(k, "%t", "ChallengeW", RED, WHITE, MOSSGREEN, szName, WHITE, MOSSGREEN, szNameOpponent, WHITE);
+							
+							if (g_Challenge_Bet[client] > 0)
+							{
+								int lostpoints = g_Challenge_Bet[client] * g_pr_PointUnit;
+								for (int j = 1; j <= MaxClients; j++)
+									if (IsValidClient(j))
+										PrintToChat(j, "%t", "ChallengeL", MOSSGREEN, WHITE, PURPLE, szNameOpponent, GRAY, RED, lostpoints, GRAY);
+								CreateTimer(0.5, UpdatePlayerProfile, GetClientUserId(i), TIMER_FLAG_NO_MAPCHANGE);
+								g_pr_showmsg[client] = true;
+							}
+							
+							break;
 						}
-						
-						break;
 					}
 				}
 			}
