@@ -217,7 +217,7 @@ public Action CKTimer1(Handle timer)
 		return Plugin_Stop;
 	
 	//if (g_bRoundEnd)
-		//return Plugin_Continue;
+		//return Plugin_Continue; // Don't wanna break run time and spec mode, so cruel
 	
 	//g_bRoundEnd = false;
 	
