@@ -663,6 +663,7 @@ void DeleteReplay(int client, int zonegroup, char[] map)
 			{
 				ConVar hBotQuota4 = FindConVar("bot_quota");
 				ServerCommand("bot_quota %i", GetConVarInt(hBotQuota4)-1);
+				//bot_quota -1 is ok!
 				CloseHandle(hBotQuota4);
 				if (GetConVarBool(g_hReplayBot) || GetConVarBool(g_hBonusBot))
 				{
