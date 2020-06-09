@@ -9,9 +9,11 @@
   - Hooks/events updated, plugin now supports any kind of map
   - Timer handles and client indexes fixed
 
-Note: Now you have an estimated start speed, a fixed goto command by Headline (see changelog), and a slower hud timer (0.2 secs).  
+Note: Now you have estimated start speed, a fixed goto command by Headline (see changelog), and a slower hud timer (0.2 secs).  
       I've noticed lighter array handles with this timer (don't worry for your run, that only makes the server smoother.)  
       sm_clear console warning when hitting a zone is normal and harmless, it's a fix for a checkpoint plugin that could be used.  
+
+My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&author=St00ne&description=&search=1
 
 # Install 🏄
   - Copy cfg/server_example.cfg content to your server.cfg, then upload all files. Keep your own cleaner extension version if it works, as I will not update it.
