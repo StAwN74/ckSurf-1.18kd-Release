@@ -956,8 +956,6 @@ public Action OnPlayerRunCmd(int client, int &buttons, int &impulse, float vel[3
 	if (g_bRoundEnd)
 		return Plugin_Continue;
 	
-	//g_bRoundEnd = false;
-	
 	if (IsPlayerAlive(client))
 	{
 		g_bLastOnGround[client] = g_bOnGround[client];

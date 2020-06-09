@@ -219,8 +219,6 @@ public Action CKTimer1(Handle timer)
 	//if (g_bRoundEnd)
 		//return Plugin_Continue; // Don't wanna break run time and spec mode, so cruel
 	
-	//g_bRoundEnd = false;
-	
 	int client;
 	for (client = 1; client <= MaxClients; client++)
 	{
@@ -266,8 +264,6 @@ public Action CKTimer2(Handle timer)
 		
 	if (g_bRoundEnd)
 		return Plugin_Continue;
-	
-	//g_bRoundEnd = false;
 	
 	if (GetConVarBool(g_hMapEnd))
 	{
