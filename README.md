@@ -4,8 +4,8 @@
   More info in the included Readme. Taking no credit except the fixing part of a good ol' car, see below:
   - Replays related crashs fixed. Trails removed like in other forks, for performance.
   - Player & admin commands related issues fixed. Some rcon commands (with client 0) were fuzzy.
-  - Weapons and bots management reviewed to avoid errors & maps crashs.
-  - Hooks/events updated, plugin now supports any kind of map.
+  - Weapons and bots management reviewed to avoid errors & maps crashs. They used to be removed at each frame.  
+  - Hooks/events updated, plugin now supports any kind of map & bots don't mess up with mp_restartgame.
   - Timer handles and client indexes fixed. As for the commands, it was leading to weird situations.
 
 Notes: Now you have colored start speed, a fixed goto command by Headline (see changelog), and a slower HUD timer.  
