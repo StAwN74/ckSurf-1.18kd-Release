@@ -13,7 +13,7 @@ Notes: Now you have colored start speed, a fixed goto command by Headline (see c
        I've noticed lighter server weight with this 0.2 secs timer (don't worry for your run, it's only about HUD info.)  
        sm_clear console warning when starting a run is normal and harmless, it's a fix for a checkpoint plugin I needed.  
 
-Thanks to ZZK community and Freak.exe for testing, and support. Thx to Elzi / jonitaikaponi for the original plugin. 
+Thanks to ZZK community and Freak.exe for testing, and support. Thx to Elzi / jonitaikaponi for the original plugin.  
 Thanks to Headline for his sm_goto:  https://forums.alliedmods.net/showthread.php?p=2323724  
 My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&author=St00ne&description=&search=1
 
