@@ -25,8 +25,7 @@ My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&autho
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
 # Changelog
-  - 09/06/20: Fixed Bots quota, plugin now doesn't mess with bots IDs.  
-  You still need to change map on server start to work perfectly, or just wait for second map.
+  - 09/06/20: Fixed Bots quota, plugin now doesn't mess with bots IDs. You still need to change map on server start to work perfectly, but you can just wait for second map. Only bonus bot is missing if you start server and don't change the map.
   
   - 08/06/20: Added 'Estimated Start Speed' in player chat. Fixed Timer after spectate (my bad, here).  
   
