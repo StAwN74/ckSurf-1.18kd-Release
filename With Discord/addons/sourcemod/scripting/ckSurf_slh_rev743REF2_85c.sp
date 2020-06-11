@@ -1,7 +1,7 @@
 /*=============================================
 =         ckSurf - CS:GO Perfect Timer         *
-*			 By Elzi & Fixed by StAwN          =
-=               		-               	   *
+*		 By Elzi & Fixed by StAwN      =
+=               	-		       *
 *       Thanks to AlliedModders and Elzi       =
 =  Thx to Baca, Marco, Nikooo, Fluffy, z4lab's *
 ==============================================*/
