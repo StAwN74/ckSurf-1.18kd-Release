@@ -1,4 +1,4 @@
-# ckSurf-1.18kd-Release
+# ckSurf-1.18kd-Release 🌍
   Last seen version of a great plugin, server crash fixed.
   No memory leak, no need to fully unload plugin on regular maps.
   Find me / Discuss here: https://forums.alliedmods.net/member.php?u=107052. More info in the included Readme.
@@ -24,7 +24,7 @@ My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&autho
   - Start the server. Using -tickrate 102.4 parameter in command start line of a csgo surf server is recommended to avoid ramp glitch.
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
-# Changelog
+# Changelog 👹
   - 09/06/20: Fixed Bots quota, plugin now doesn't mess with bots IDs. You still need to change map on server start to work perfectly, but you can just wait for second map. Only bonus bot is missing if you start server and don't change the map.
   
   - 08/06/20: Added 'Estimated Start Speed' in player chat. Fixed the timer after going to spectator team (my bad, here).  
