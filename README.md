@@ -27,7 +27,7 @@ My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&autho
 # Changelog
   - 09/06/20: Fixed Bots quota, plugin now doesn't mess with bots IDs. You still need to change map on server start to work perfectly, but you can just wait for second map. Only bonus bot is missing if you start server and don't change the map.
   
-  - 08/06/20: Added 'Estimated Start Speed' in player chat. Fixed Timer after spectate (my bad, here).  
+  - 08/06/20: Added 'Estimated Start Speed' in player chat. Fixed the timer after going to spectator team (my bad, here).  
   
   - 02/06/20: Fixed ragdoll removal, a lil' translation mistyping, & round end/match start on regular maps.  
   Added a raw "FakeClientCommandEx sm_clear" to prevent cheats whith another checkpoint plugin.  
