@@ -50,8 +50,8 @@
 #pragma semicolon 1
 
 // Plugin info
-#define VERSION "1.20k by StAwN"
-#define PLUGIN_VERSION 120k_StAwN
+#define VERSION "1.18k by StAwN"
+#define PLUGIN_VERSION 118k_StAwN
 
 // Database definitions
 #define MYSQL 0
