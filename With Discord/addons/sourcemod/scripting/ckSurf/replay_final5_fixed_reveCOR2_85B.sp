@@ -242,7 +242,7 @@ public Action LoadOnlyBonus(Handle timer)
 		//if (zId != -1 && g_mapZones[zId][zoneGroup] != 0)
 		//{
 			//BuildPath(Path_SM, newPath, sizeof(newPath), "%s%s_Bonus_%i.rec", CK_REPLAY_PATH, g_szMapName, g_mapZones[zId][zoneGroup]);
-			//if (RenameFile(newPath, sPath))
+			//if (RenameFile(newPath, sPath2))
 				//PrintToServer("[ckSurf] Succesfully renamed bonus record file to: %s", newPath);
 		//}
 		//CloseHandle(hFilex);
