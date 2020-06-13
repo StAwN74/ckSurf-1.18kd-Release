@@ -1023,7 +1023,7 @@ public Action OnPlayerRunCmd(int client, int &buttons, int &impulse, float vel[3
 			if (!IsFakeClient(client))
 				RecordReplay(client, buttons, subtype, seed, impulse, weapon, angles, vel);
 			else
-				if (client == g_RecordBot || client == g_BonusBot)
+				if (IsFakeClient(client))
 					PlayReplay(client, buttons, subtype, seed, impulse, weapon, angles, vel);
 		}
 		else
@@ -1031,7 +1031,7 @@ public Action OnPlayerRunCmd(int client, int &buttons, int &impulse, float vel[3
 			if (!IsFakeClient(client))
 				RecordReplay(client, buttons, subtype, seed, impulse, weapon, angles, newVelocity);
 			else
-				if (client == g_RecordBot || client == g_BonusBot)
+				if (IsFakeClient(client))
 					PlayReplay(client, buttons, subtype, seed, impulse, weapon, angles, newVelocity);
 		}
 		
