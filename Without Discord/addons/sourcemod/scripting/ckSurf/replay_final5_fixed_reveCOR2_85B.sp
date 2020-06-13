@@ -847,7 +847,7 @@ public void PlayReplay(int client, int &buttons, int &subtype, int &seed, int &i
 			
 			if ((GetEngineTime() - g_fReplayRestarted[client]) < (BEAMLIFE))
 				return;
-			// was written if (client != g_InfoBot)!!! But it needs it too!!
+			// was written if (client != g_BonusBot)!!! But it needs it too!!
 			//{
 			g_BotMimicTick[client] = 0;
 			g_CurrentAdditionalTeleportIndex[client] = 0;
