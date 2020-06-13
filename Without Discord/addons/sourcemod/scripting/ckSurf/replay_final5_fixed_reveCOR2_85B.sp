@@ -236,13 +236,13 @@ public Action LoadOnlyBonus(Handle timer)
 		//int iFileHeader[FILE_HEADER_LENGTH];
 		//float initPos[3];
 		//char newPath[256];
-		//LoadRecordFromFile(sPath, iFileHeader);
+		//LoadRecordFromFile(sPath2, iFileHeader);
 		//Array_Copy(iFileHeader[view_as<int>(FH_initialPosition)], initPos, 3);
 		//int zId = IsInsideZone(initPos, 50.0);
 		//if (zId != -1 && g_mapZones[zId][zoneGroup] != 0)
 		//{
 			//BuildPath(Path_SM, newPath, sizeof(newPath), "%s%s_Bonus_%i.rec", CK_REPLAY_PATH, g_szMapName, g_mapZones[zId][zoneGroup]);
-			//if (RenameFile(newPath, sPath))
+			//if (RenameFile(newPath, sPath2))
 				//PrintToServer("[ckSurf] Succesfully renamed bonus record file to: %s", newPath);
 		//}
 		//CloseHandle(hFilex);
