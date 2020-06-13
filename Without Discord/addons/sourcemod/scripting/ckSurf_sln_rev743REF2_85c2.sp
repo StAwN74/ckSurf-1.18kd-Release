@@ -1160,6 +1160,9 @@ public void OnClientPutInServer(int client)
 	if (!IsValidClient(client))
 		return;
 	
+	if (!WeAreOk)
+		return;
+	
 	//defaults - need to check if some are for bots too, otherwise, add a condition!
 	if (!IsFakeClient(client))
 		SetClientDefaults(client);
@@ -1300,7 +1303,7 @@ public void OnClientDisconnect(int client)
 	//}
 
 	g_fPlayerLastTime[client] = -1.0;
-	if (g_fStartTime[client] != -1.0 && g_bTimeractivated[client])
+	if (!IsFakeClient(client) && g_fStartTime[client] != -1.0 && g_bTimeractivated[client])
 	{
 		if (g_bPause[client])
 		{
@@ -1330,7 +1333,7 @@ public void OnClientDisconnect(int client)
 		g_hBotTrail[0] = null;
 		StopPlayerMimic(client);
 		g_RecordBot = -1;
-		//return;
+		return;
 	}
 	if (client == g_BonusBot)
 	{
@@ -1339,13 +1342,13 @@ public void OnClientDisconnect(int client)
 		g_hBotTrail[1] = null;
 		StopPlayerMimic(client);
 		g_BonusBot = -1;
-		//return;
+		return;
 	}
 	if (client == g_InfoBot)
 	{
-		StopPlayerMimic(client);
+		StopPlayerMimic(client); // This bot is never in this situation
 		g_InfoBot = -1;
-		//return;
+		return;
 	}
 	
 	//Database	
@@ -2432,3 +2435,4 @@ public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max
 }
 
 /*=====  End of Natives  ======*/
+// END //
