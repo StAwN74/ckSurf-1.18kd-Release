@@ -825,7 +825,7 @@ public void PlayReplay(int client, int &buttons, int &subtype, int &seed, int &i
 	if (g_hBotMimicsRecord[client] != null)
 	{
 		if (g_BotMimicTick[client] >= g_BotMimicRecordTickCount[client] || g_bReplayAtEnd[client])
-		{			
+		{
 			if (!g_bReplayAtEnd[client])
 			{
 				//if (client == g_BonusBot)
@@ -866,7 +866,7 @@ public void PlayReplay(int client, int &buttons, int &subtype, int &seed, int &i
 						g_BotMimicTick[client],
 						iFrame,
 						view_as<int>(FrameInfo)
-					);		
+					);
 
 		buttons = iFrame[playerButtons];
 		impulse = iFrame[playerImpulse];
@@ -945,7 +945,7 @@ public void PlayReplay(int client, int &buttons, int &subtype, int &seed, int &i
 		// This is the first tick. Teleport it to the initial position
 		if (g_BotMimicTick[client] == 0)
 		{
-			CL_OnStartTimerPress(client);			
+			CL_OnStartTimerPress(client);
 			g_bValidTeleportCall[client] = true;
 			TeleportEntity(client, g_fInitialPosition[client], g_fInitialAngles[client], fActualVelocity);
 			
