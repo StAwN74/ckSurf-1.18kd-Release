@@ -284,8 +284,8 @@ public void PlayRecord(int client, int type)
 {
 	if (!IsValidClient(client))
 		return;
-	if (g_hRecording[client] != null || !IsFakeClient(client))
-		return;
+	//if (g_hRecording[client] != null || !IsFakeClient(client))
+		//return;
 	char buffer[256];
 	char sPath[256];
 	if (type == 0)
