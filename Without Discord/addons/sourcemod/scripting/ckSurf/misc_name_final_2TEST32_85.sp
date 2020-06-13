@@ -26,26 +26,46 @@ void revertServerHibernateSettings()
 void setBotQuota()
 {
 	// Get bot_quota value
-	ConVar hBotQuota = FindConVar("bot_quota");
+	//ConVar hBotQuota = FindConVar("bot_quota");
 
 	// Initialize
-	SetConVarInt(hBotQuota, 0, false, false);
+	//ServerCommand("bot_quota 0");
+	//SetConVarInt(hBotQuota, 0, false, false);
 
 	// Check how many bots are needed
 	int count = 0;
-	if (g_bMapReplay)
+	if (g_bMapReplay && GetConVarBool(g_hReplayBot))
 		count++;
 	if (GetConVarBool(g_hInfoBot))
 		count++;
-	if (g_BonusBotCount > 0)
-		count++;
-
-	if (count == 0)
-		SetConVarInt(hBotQuota, 0, false, false);
-	else
-		SetConVarInt(hBotQuota, count, false, false);
+	if (GetConVarBool(g_hBonusBot))
+	{
+		if (g_BonusBotCount == 1)
+			count++;
+		if (g_BonusBotCount == 2)
+			count++;
+		if (g_BonusBotCount == 3)
+			count++;
+		if (g_BonusBotCount == 4)
+			count++;
+		if (g_BonusBotCount == 5)
+			count++;
+		if (g_BonusBotCount == 6)
+			count++;
+		if (g_BonusBotCount == 7)
+			count++;
+		if (g_BonusBotCount == 8)
+			count++;
+	}
 	
-	CloseHandle(hBotQuota);
+	if (count == 0)
+		ServerCommand("bot_quota 0");
+		//SetConVarInt(hBotQuota, 0, false, false);
+	else
+		ServerCommand("bot_quota %i", count);
+		//SetConVarInt(hBotQuota, count, false, false);
+	
+	//CloseHandle(hBotQuota);
 
 	return;
 }
@@ -1182,14 +1202,14 @@ public void GetCountry(int client)
 
 stock void StripAllWeapons(int client)
 {
-	int iEnt;
+	int iEnt7;
 	for (int i = 0; i <= 5; i++)
 	{
 		if (i != 2)
-			while ((iEnt = GetPlayerWeaponSlot(client, i)) != -1)
+			while ((iEnt7 = GetPlayerWeaponSlot(client, i)) != -1)
 		{
-			RemovePlayerItem(client, iEnt);
-			RemoveEdict(iEnt);
+			RemovePlayerItem(client, iEnt7);
+			RemoveEdict(iEnt7);
 		}
 	}
 	if (GetPlayerWeaponSlot(client, 2) == -1)
@@ -2936,7 +2956,7 @@ public void LoadInfoBot()
 	}
 	else
 	{
-		setBotQuota(); // I will remove this at timer
+		//setBotQuota(); // I will remove this at timer
 		CreateTimer(5.0, RefreshInfoBot, _, TIMER_FLAG_NO_MAPCHANGE);
 	}
 }
@@ -2971,12 +2991,12 @@ public void CreateNavFiles()
 
 public Action RefreshInfoBot(Handle timer)
 {
-	//setBotQuota();
-	LoadInfoBot();
+	setBotQuota();
+	CreateTimer (1.0, RefreshInfoBot2, _, TIMER_FLAG_NO_MAPCHANGE);
 	return Plugin_Handled;
 }
 
-//This one will be useless then, called at onsettingchange
+														  
 public Action RefreshInfoBot2(Handle timer)
 {
 	LoadInfoBot();

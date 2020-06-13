@@ -180,7 +180,7 @@ public void LoadReplays()
 	}
 
 	//g_BonusBotCount = 0;
-	//g_RecordBot = -1;
+	g_RecordBot = -1;
 	//g_BonusBot = -1;
 	//g_iCurrentBonusReplayIndex = 0;
 	ClearTrie(g_hLoadedRecordsAdditionalTeleport);
@@ -241,7 +241,7 @@ public Action LoadOnlyBonus(Handle timer)
 		//int zId = IsInsideZone(initPos, 50.0);
 		//if (zId != -1 && g_mapZones[zId][zoneGroup] != 0)
 		//{
-			//BuildPath(Path_SM, newPath, sizeof(newPath), "%s%s_bonus_%i.rec", CK_REPLAY_PATH, g_szMapName, g_mapZones[zId][zoneGroup]);
+			//BuildPath(Path_SM, newPath, sizeof(newPath), "%s%s_Bonus_%i.rec", CK_REPLAY_PATH, g_szMapName, g_mapZones[zId][zoneGroup]);
 			//if (RenameFile(newPath, sPath))
 				//PrintToServer("[ckSurf] Succesfully renamed bonus record file to: %s", newPath);
 		//}
@@ -527,7 +527,7 @@ public void LoadRecordReplay()
 			
 		char clantag[100];
 		CS_GetClientClanTag(g_RecordBot, clantag, sizeof(clantag));
-		if (StrContains(clantag, "REPLAY") == -1)
+		if (StrContains(clantag, "MAP REPLAY") == -1)
 			g_bNewRecordBot = true;
 
 		g_iClientInZone[g_RecordBot][2] = 0;
@@ -579,7 +579,7 @@ public void LoadBonusReplay()
 	for (int i = 1; i <= MaxClients; i++)
 	{
 		if (!IsValidClient(i))
-			continue; // Add condition if already bonus bot, but they are several?
+			continue; // Add condition if already bonus bot, cuz they are several?
 		if (!IsFakeClient(i) || IsClientSourceTV(i) || i == g_InfoBot || i == g_RecordBot || i == g_BonusBot)
 			continue;
 		
@@ -598,7 +598,7 @@ public void LoadBonusReplay()
 
 		char clantag[100];
 		CS_GetClientClanTag(g_BonusBot, clantag, sizeof(clantag));
-		if (StrContains(clantag, "REPLAY") == -1)
+		if (StrContains(clantag, "BONUS REPLAY") == -1)
 			g_bNewBonusBot = true;
 		g_iClientInZone[g_BonusBot][2] = g_iBonusToReplay[0];
 		PlayRecord(g_BonusBot, 1);
@@ -622,7 +622,7 @@ public void LoadBonusReplay()
 	else
 	{
 		// Make sure bot_quota is set correctly and try again
-		CreateTimer(3.6, RefreshBonusBot, _, TIMER_FLAG_NO_MAPCHANGE);
+		CreateTimer(3.9, RefreshBonusBot, _, TIMER_FLAG_NO_MAPCHANGE);
 	}
 }
 
@@ -684,23 +684,30 @@ void DeleteReplay(int client, int zonegroup, char[] map)
 			if (zonegroup == 0 && IsValidClient(g_RecordBot))
 			{
 				ConVar hBotQuota4 = FindConVar("bot_quota");
-				ServerCommand("bot_quota %i", GetConVarInt(hBotQuota4)-1);
-				//bot_quota -1 is ok!
+				if (GetConVarInt(hBotQuota4) > 0)
+					ServerCommand("bot_quota %i", GetConVarInt(hBotQuota4)-1);
+				
 				CloseHandle(hBotQuota4);
-				if (GetConVarBool(g_hReplayBot) || GetConVarBool(g_hBonusBot))
+				if (GetConVarBool(g_hReplayBot))
 				{
 					CreateTimer(1.0, RefreshBot, _, TIMER_FLAG_NO_MAPCHANGE);
 				}
+				if (GetConVarBool(g_hBonusBot))
+				{
+					CreateTimer(1.6, RefreshBonusBot, _, TIMER_FLAG_NO_MAPCHANGE);
+				}
 				if (GetConVarBool(g_hInfoBot))
 				{
-					CreateTimer(1.6, RefreshInfoBot, _, TIMER_FLAG_NO_MAPCHANGE);
+					CreateTimer(2.5, RefreshInfoBot, _, TIMER_FLAG_NO_MAPCHANGE);
 				}
 				
 			}
 			else if (zonegroup > 1 && IsValidClient(g_BonusBot))
 			{
 				ConVar hBotQuota3 = FindConVar("bot_quota");
-				ServerCommand("bot_quota %i", GetConVarInt(hBotQuota3)-1);
+				if (GetConVarInt(hBotQuota3) > 0)
+					ServerCommand("bot_quota %i", GetConVarInt(hBotQuota3)-1);
+				
 				CloseHandle(hBotQuota3);
 				if (GetConVarBool(g_hReplayBot))
 				{
@@ -821,17 +828,18 @@ public void PlayReplay(int client, int &buttons, int &subtype, int &seed, int &i
 		{			
 			if (!g_bReplayAtEnd[client])
 			{
-				if (client == g_BonusBot)
-				{
+				//if (client == g_BonusBot)
+				//{
 					// Call to load another replay
-					if (g_iCurrentBonusReplayIndex < (g_BonusBotCount-1))
-						g_iCurrentBonusReplayIndex++;
-					else
-						g_iCurrentBonusReplayIndex = 0;
-
-					PlayRecord(g_BonusBot, 1);
-					g_iClientInZone[g_BonusBot][2] = g_iBonusToReplay[g_iCurrentBonusReplayIndex];
-				}
+					// Here is why there's a new handle when same bonus bot restarts the run. We need it if multiple bonus bots are expected, but I remove it for now
+					//if (g_iCurrentBonusReplayIndex < (g_BonusBotCount-1))
+						//g_iCurrentBonusReplayIndex++;
+					//else
+						//g_iCurrentBonusReplayIndex = 0;
+					//
+					//PlayRecord(g_BonusBot, 1);
+					//g_iClientInZone[g_BonusBot][2] = g_iBonusToReplay[g_iCurrentBonusReplayIndex];
+				//}
 				g_fReplayRestarted[client] = GetEngineTime();
 				SetEntPropFloat(client, Prop_Data, "m_flLaggedMovementValue", 0.0);
 				g_bReplayAtEnd[client] = true;
@@ -839,11 +847,11 @@ public void PlayReplay(int client, int &buttons, int &subtype, int &seed, int &i
 			
 			if ((GetEngineTime() - g_fReplayRestarted[client]) < (BEAMLIFE))
 				return;
-			if (client != g_BonusBot)
-			{
-				g_BotMimicTick[client] = 0;
-				g_CurrentAdditionalTeleportIndex[client] = 0;
-			}
+			// was written if (client != g_InfoBot)!!! But it needs it too!!
+			//{
+			g_BotMimicTick[client] = 0;
+			g_CurrentAdditionalTeleportIndex[client] = 0;
+			//}
 
 			SetEntPropFloat(client, Prop_Data, "m_flLaggedMovementValue", 1.0);
 			g_bReplayAtEnd[client] = false;

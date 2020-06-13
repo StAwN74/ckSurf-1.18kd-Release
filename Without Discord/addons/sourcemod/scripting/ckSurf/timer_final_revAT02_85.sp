@@ -217,7 +217,7 @@ public Action CKTimer1(Handle timer)
 		return Plugin_Stop;
 	
 	//if (g_bRoundEnd)
-		//return Plugin_Continue; // Don't wanna break run time and spec mode, so cruel
+		//return Plugin_Continue; // Don't wanna stop this
 	
 	int client;
 	for (client = 1; client <= MaxClients; client++)
@@ -283,9 +283,9 @@ public Action CKTimer2(Handle timer)
 					if (!g_bRoundEnd)
 					{
 						g_bRoundEnd = true;
-						//ServerCommand("mp_ignore_round_win_conditions 0");
+						ServerCommand("mp_ignore_round_win_conditions 0");
 						PrintToChatAll("%t", "TimeleftCounter", LIGHTRED, WHITE, 1);
-						CreateTimer(1.0, TerminateRoundTimer, INVALID_HANDLE, TIMER_FLAG_NO_MAPCHANGE);
+						CreateTimer(3.0, TerminateRoundTimer, INVALID_HANDLE, TIMER_FLAG_NO_MAPCHANGE);
 					}
 				}
 			}
