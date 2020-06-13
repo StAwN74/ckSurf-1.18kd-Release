@@ -38,25 +38,8 @@ void setBotQuota()
 		count++;
 	if (GetConVarBool(g_hInfoBot))
 		count++;
-	if (GetConVarBool(g_hBonusBot))
-	{
-		if (g_BonusBotCount == 1)
-			count++;
-		if (g_BonusBotCount == 2)
-			count++;
-		if (g_BonusBotCount == 3)
-			count++;
-		if (g_BonusBotCount == 4)
-			count++;
-		if (g_BonusBotCount == 5)
-			count++;
-		if (g_BonusBotCount == 6)
-			count++;
-		if (g_BonusBotCount == 7)
-			count++;
-		if (g_BonusBotCount == 8)
-			count++;
-	}
+	if (GetConVarBool(g_hBonusBot) && g_BonusBotCount > 0)
+		count++;
 	
 	if (count == 0)
 		ServerCommand("bot_quota 0");
