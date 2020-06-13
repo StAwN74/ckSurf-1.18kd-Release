@@ -200,6 +200,9 @@ public void CL_OnEndTimerPress(int client)
 	/*==========================================
 	=            Handling map times            =
 	==========================================*/
+	if (client == g_RecordBot || client == g_BonusBot || client == g_InfoBot)
+		return;
+	
 	if (zGroup == 0)
 	{
 		// Make a new record bot?

@@ -68,8 +68,8 @@ public void Event_OnPlayerSpawn(Handle event, const char[] name, bool dontBroadc
 			g_bFirstTimerStart[client] = true;
 			SetEntityMoveType(client, MOVETYPE_WALK);
 			SetEntityRenderMode(client, RENDER_NORMAL);
-			//From olokos
-			SDKHook(client, SDKHook_SetTransmit, Hook_SetTransmit);
+			//From olokos - I'll keep it at OnClientPutInServer & OnClientDisconnect for now
+			//SDKHook(client, SDKHook_SetTransmit, Hook_SetTransmit);
 		}
 		
 		//strip weapons
@@ -94,13 +94,6 @@ public void Event_OnPlayerSpawn(Handle event, const char[] name, bool dontBroadc
 		else
 			SetEntData(client, FindSendPropInfo("CBaseEntity", "m_CollisionGroup"), 5, 4, true);
 		
-		//botmimic2		
-		if (g_hBotMimicsRecord[client] != null && IsFakeClient(client))
-		{
-			g_BotMimicTick[client] = 0;
-			g_CurrentAdditionalTeleportIndex[client] = 0;
-		}
-		
 		if (IsFakeClient(client))
 		{
 			if (client == g_InfoBot)
@@ -111,6 +104,13 @@ public void Event_OnPlayerSpawn(Handle event, const char[] name, bool dontBroadc
 				CS_SetClientClanTag(client, "BONUS REPLAY");
 			return;
 			//Are you sure, they will not get skins, etc.
+		}
+		
+		//botmimic2		
+		if (g_hBotMimicsRecord[client] != null && IsFakeClient(client))
+		{
+			g_BotMimicTick[client] = 0;
+			g_CurrentAdditionalTeleportIndex[client] = 0;
 		}
 		
 		//SDKHook(client, SDKHook_SetTransmit, Hook_SetTransmit);
@@ -394,9 +394,6 @@ public void Event_OnPlayerTeam(Handle event, const char[] name, bool dontBroadca
 	int client = GetClientOfUserId(GetEventInt(event, "userid"));
 	if (!IsValidClient(client))
 		return;
-	//Letting this for bot too?
-	if (IsFakeClient(client))
-		return;
 	
 	int team = GetEventInt(event, "team");
 	
@@ -408,7 +405,31 @@ public void Event_OnPlayerTeam(Handle event, const char[] name, bool dontBroadca
 		//return;
 	//}
 	
-	if (team == 1)
+	bool disco = GetEventBool(event, "disconnect");
+	if (disco)
+	{
+		CloseHandle(g_hRecordingAdditionalTeleport[client]);
+		g_hRecordingAdditionalTeleport[client] = null;
+		
+		//Below should be useless cuz the player must have died
+		//Same as OnPlayerDeath
+		if (!IsFakeClient(client))
+		{
+			if (g_hRecording[client] != null)
+				StopRecording(client);
+			return;
+		}
+		if (IsFakeClient(client))
+		{
+			if (g_hBotMimicsRecord[client] != null)
+			{
+				g_BotMimicTick[client] = 0;
+				g_CurrentAdditionalTeleportIndex[client] = 0;
+			}
+		}
+		return;
+	}
+	if (!disco && team == 1)
 	{	
 		SpecListMenuDead(client);
 		if (!g_bFirstSpawn[client])
@@ -509,14 +530,15 @@ public void Event_OnPlayerDeath(Handle event, const char[] name, bool dontBroadc
 	int client = GetClientOfUserId(GetEventInt(event, "userid"));
 	if (IsValidClient(client))
 	{
-		SDKUnhook(client, SDKHook_SetTransmit, Hook_SetTransmit);
+		//SDKUnhook(client, SDKHook_SetTransmit, Hook_SetTransmit);
 		if (!IsFakeClient(client))
 		{
 			if (g_hRecording[client] != null)
 				StopRecording(client);
 			CreateTimer(2.0, RemoveRagdoll, GetClientUserId(client), TIMER_FLAG_NO_MAPCHANGE);
 		}
-		else
+		if (IsFakeClient(client))
+		{
 			if (g_hBotMimicsRecord[client] != null)
 			{
 				g_BotMimicTick[client] = 0;
@@ -524,6 +546,7 @@ public void Event_OnPlayerDeath(Handle event, const char[] name, bool dontBroadc
 				if (GetClientTeam(client) >= CS_TEAM_T && client != g_InfoBot)
 					CreateTimer(1.0, RespawnBot, GetClientUserId(client), TIMER_FLAG_NO_MAPCHANGE);
 			}
+		}
 	}
 	//return Plugin_Continue;
 	return;
@@ -555,11 +578,11 @@ public void Event_OnPlayerDeath(Handle event, const char[] name, bool dontBroadc
 //See Event_OnRoundStart/Event_OnMatchStartCS for more details.
 public Action CS_OnTerminateRound(float &delay, CSRoundEndReason &reason)
 {
-	PrintToServer("[CK] CS_OnTerminateRound fired");
 	if (WeAreOk)
 	{
 		if (reason == CSRoundEnd_GameStart)
 		{
+			PrintToServer("[CK] CS_OnTerminateRound fired (2 players or bots joined). Blocked.");
 			//ServerCommand("bot_kick");
 			//ServerCommand("bot_quota 0");
 			//CreateTimer(5.0, DelayedStuff2, INVALID_HANDLE, TIMER_FLAG_NO_MAPCHANGE);
@@ -569,7 +592,7 @@ public Action CS_OnTerminateRound(float &delay, CSRoundEndReason &reason)
 		}
 		else
 		{
-			PrintToServer("[CK] Not due to CS_OTR reason, so we don't block it.");
+			PrintToServer("[CK] CS_OnTerminateRound NOT due to CS_OTR reason, so we don't block it.");
 			GameStartNeeded = true;
 			g_bRoundEnd = true;
 			//ServerCommand("bot_kick");
@@ -578,10 +601,11 @@ public Action CS_OnTerminateRound(float &delay, CSRoundEndReason &reason)
 	}
 	else
 	{
-		PrintToServer("[CK] NOT a SURF, BHOP or KZ map, so we let it go.");
+		PrintToServer("[CK] NOT a SURF, BHOP or KZ map, so we don't block CS_OnTerminateRound.");
 		//ServerCommand("bot_kick");
 		return Plugin_Changed;
 	}
+	//Now plugin uses map configs and mp_ignore_round_win_conditions
 	//int timeleft;
 	//GetMapTimeLeft(timeleft);
 	//if (WeAreOk && timeleft >= -1 && !GetConVarBool(g_hAllowRoundEndCvar))
@@ -643,47 +667,34 @@ public void Event_OnRoundStart(Handle event, const char[] name, bool dontBroadca
 	if (!WeAreOk)
 		return;
 		
-	//g_bRoundEnd = false;
-	//if (!GameStartNeeded)
-	//{
-		//GameStartNeeded = true;
-	//}
-	
-	
-	//At FreezeEnd (triggered only once unlike round_start)
-	//GameStartNeeded = true;
-	//LoadReplays();
-	//LoadInfoBot();
-	//ServerCommand("bot_kick");
-	//ServerCommand("bot_quota 0");
-	
-	//Renewing these hotfixes on round start in this version. Focusing on cktimer 1 & 2.
-	int iEnt;
-	iEnt = -1;
+	//Not renewing these hotfixes on round start in this version (or am I)
+	int iEnt1;
+	iEnt1 = -1;
 	//Still need this for many maps
 	for (int i = 0; i < sizeof(EntityList); i++)
 	{
-		while ((iEnt = FindEntityByClassname(iEnt, EntityList[i])) != -1)
+		while ((iEnt1 = FindEntityByClassname(iEnt1, EntityList[i])) != -1)
 		{
-			AcceptEntityInput(iEnt, "Disable");
-			AcceptEntityInput(iEnt, "Kill");
+			AcceptEntityInput(iEnt1, "Disable");
+			AcceptEntityInput(iEnt1, "Kill");
 		}
 	}
 	
 	// PushFix by Mev, George, & Blacky
 	// https://forums.alliedmods.net/showthread.php?t=267131
-	iEnt = -1;
-	while ((iEnt = FindEntityByClassname(iEnt, "trigger_push")) != -1)
+	//int iEnt;
+	iEnt1 = -1;
+	while ((iEnt1 = FindEntityByClassname(iEnt1, "trigger_push")) != -1)
 	{
-		SDKHook(iEnt, SDKHook_Touch, OnTouchPushTrigger);
-		SDKHook(iEnt, SDKHook_EndTouch, OnEndTouchPushTrigger);
+		SDKHook(iEnt1, SDKHook_Touch, OnTouchPushTrigger);
+		//SDKHook(iEnt1, SDKHook_EndTouch, OnEndTouchPushTrigger);
 	}
 	
 	//Trigger Gravity Fix
-	//iEnt = -1;
-	//while ((iEnt = FindEntityByClassname(iEnt, "trigger_gravity")) != -1)
+	//iEnt1 = -1;
+	//while ((iEnt1 = FindEntityByClassname(iEnt1, "trigger_gravity")) != -1)
 	//{
-		//SDKHook(iEnt, SDKHook_EndTouch, OnEndTouchGravityTrigger);
+		//SDKHook(iEnt1, SDKHook_EndTouch, OnEndTouchGravityTrigger);
 	//}
 	
 	//db_viewMapSettings();
@@ -734,18 +745,10 @@ public void Event_OnFreezeEnd(Handle event, const char[] name, bool dontBroadcas
 		return;
 	}
 	
-	//Now even with a scd map start, no dbl load
+	//Now even with a scd map start, no dbl load, unless a real round end comes out for some reason.
 	GameStartNeeded = false;
 	
 	PrintToServer("[CK] This time, Bots will be reloaded");
-	
-	//Fixing Bot quota changed by server, because new bot changes his name at that point when it's for a game_start reason
-	//This happens at mp_restartgame or at 1st replay on a map, done by a player alone. Even if bot joins same team.
-	//I didn't want to remove mp_restartgame command so, I am doing it this way. EDIT: it's a map problem.
-	//ServerCommand("bot_quota 0");
-	//ServerCommand("bot_kick");
-	//LoadReplays();
-	//LoadInfoBot();
 	
 	//if (!g_bRenaming && !g_bInTransactionChain)
 	//{
@@ -761,17 +764,6 @@ public void Event_OnFreezeEnd(Handle event, const char[] name, bool dontBroadcas
 	
 	//CheatFlag("bot_zombie", false, true);
 	//CheatFlag("bot_mimic", false, true);
-	
-	//for (int i = 1; i <= MaxClients; i++)
-	//{
-		//if (IsClientInGame(i))
-		//{
-			//Client_Stop(i, 0);
-			//SDKHook(i, SDKHook_StartTouch, StartTouchTrigger);
-			//SDKHook(i, SDKHook_EndTouch, EndTouchTrigger);
-			//teleportClient(client, 0, 1, true);
-		//}
-	//}
 	
 	//I managed to stop CKTimer1 and CKTimer2 and reload them this way, but it's worse. Sometimes, just let the plugin go.
 	//CreateTimer(0.2, CKTimer1, INVALID_HANDLE, TIMER_FLAG_NO_MAPCHANGE | TIMER_REPEAT);
@@ -790,12 +782,7 @@ public void Event_OnMatchStartCS(Handle event, const char[] name, bool dontBroad
 
 public Action DelayedStuff2(Handle timer)
 {
-	//ServerCommand("bot_quota 0");
-	//ServerCommand("bot_kick");
-	//GameStartNeeded = false;
-	//g_bRoundEnd = false;
-	//RefreshZones();
-	//The timers don't check bot quota.
+	//These timers don't check bot quota, which is what I want.
 	if (GetConVarBool(g_hReplayBot))
 	{
 		CreateTimer (3.0, RefreshBot2, _, TIMER_FLAG_NO_MAPCHANGE);
@@ -808,8 +795,7 @@ public Action DelayedStuff2(Handle timer)
 	{
 		CreateTimer (5.0, RefreshInfoBot2, _, TIMER_FLAG_NO_MAPCHANGE);
 	}
-	//CreateTimer (5.0, LoadReplaysFullTimer, _, TIMER_FLAG_NO_MAPCHANGE);
-	//CreateTimer (5.5, LoadInfoBotFullTimer, _, TIMER_FLAG_NO_MAPCHANGE);
+	
 	PrintToServer("[CK] All Bots will be reloaded in 5 secs. Surf_summer might spawn an invisible bot, but no crash.");
 }
 
@@ -821,13 +807,7 @@ public Action LoadReplaysFullTimer(Handle timer)
 	//PrintToServer("[CK] Bots successfully reloaded.");
 }
 
-//Maybe readd InfoBot too? or he might be messed up at map restart
-//public Action LoadInfoBotFullTimer(Handle timer)
-//{
-	//LoadInfoBot();
-//}
-
-//This fix really works
+//This fix seems to work
 public Action OnTouchAllTriggers(int entity, int other)
 {
 	if (other >= 1 && other <= MaxClients)
@@ -887,16 +867,17 @@ public Action OnTouchPushTrigger(int entity, int other)
 	return Plugin_Continue;
 }
 
-public Action OnEndTouchPushTrigger(int entity, int other)
-{
-	if (IsValidClient(other) && GetConVarBool(g_hTriggerPushFixEnable) == true)
-	{
-		if (IsFakeClient(other))
-			return Plugin_Handled;
-	}
-	return Plugin_Continue;
-}
+//public Action OnEndTouchPushTrigger(int entity, int other)
+//{
+	//if (IsValidClient(other) && GetConVarBool(g_hTriggerPushFixEnable) == true)
+	//{
+		//if (IsFakeClient(other))
+			//return Plugin_Handled;
+	//}
+	//return Plugin_Continue;
+//}
 
+//Not sure it's working
 //public Action OnEndTouchGravityTrigger(int entity, int other)
 //{
 	//if (IsValidClient(other) && !IsFakeClient(other))
