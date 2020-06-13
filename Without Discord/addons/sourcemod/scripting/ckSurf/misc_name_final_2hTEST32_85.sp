@@ -2925,7 +2925,7 @@ public void SpecListMenuAlive(int client) // What player sees
 
 public void LoadInfoBot()
 {
-	if (!GetConVarBool(g_hInfoBot))
+	if (!GetConVarBool(g_hInfoBot) || !WeAreOk)
 		return;
 	
 	g_InfoBot = -1;

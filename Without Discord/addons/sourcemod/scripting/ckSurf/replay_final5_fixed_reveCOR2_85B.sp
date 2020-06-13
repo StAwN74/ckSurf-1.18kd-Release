@@ -180,7 +180,7 @@ public void LoadReplays()
 	}
 
 	//g_BonusBotCount = 0;
-	g_RecordBot = -1;
+	//g_RecordBot = -1;
 	//g_BonusBot = -1;
 	//g_iCurrentBonusReplayIndex = 0;
 	ClearTrie(g_hLoadedRecordsAdditionalTeleport);
@@ -503,7 +503,7 @@ public Action RefreshBot2(Handle timer)
 
 public void LoadRecordReplay()
 {
-	if (!GetConVarBool(g_hReplayBot))
+	if (!GetConVarBool(g_hReplayBot) || !WeAreOk)
 		return;
 	
 	g_RecordBot = -1;
@@ -571,7 +571,7 @@ public Action RefreshBonusBot2(Handle timer)
 
 public void LoadBonusReplay()
 {
-	if (!GetConVarBool(g_hBonusBot))
+	if (!GetConVarBool(g_hBonusBot) || !WeAreOk)
 		return;
 	
 	g_BonusBot = -1;

@@ -391,7 +391,7 @@ public void Event_OnPlayerTeam(Handle event, const char[] name, bool dontBroadca
 		}
 		return;
 	}
-	if (team == 1)
+	if (!disco && team == 1)
 	{	
 		SpecListMenuDead(client);
 		if (!g_bFirstSpawn[client])
