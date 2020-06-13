@@ -1178,6 +1178,9 @@ public void OnClientPutInServer(int client)
 	if (!IsValidClient(client))
 		return;
 	
+	if (!WeAreOk)
+		return;
+	
 	//defaults - need to check if some are for bots too, otherwise, add a condition!
 	if (!IsFakeClient(client))
 		SetClientDefaults(client);
