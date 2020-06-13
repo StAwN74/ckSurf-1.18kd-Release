@@ -229,7 +229,7 @@ public Action LoadOnlyBonus(Handle timer)
 	
 	// Try to fix old bonus replays
 	//BuildPath(Path_SM, sPath2, sizeof(sPath2), "%s%s_bonus.rec", CK_REPLAY_PATH, g_szMapName);
-	//Handle hFilex = OpenFile(sPath, "r");
+	//Handle hFilex = OpenFile(sPath2, "r");
 
 	//if (hFilex != null)
 	//{
@@ -527,7 +527,7 @@ public void LoadRecordReplay()
 			
 		char clantag[100];
 		CS_GetClientClanTag(g_RecordBot, clantag, sizeof(clantag));
-		if (StrContains(clantag, "MAP REPLAY") == -1)
+		if (StrContains(clantag, "REPLAY") == -1)
 			g_bNewRecordBot = true;
 
 		g_iClientInZone[g_RecordBot][2] = 0;
@@ -598,7 +598,7 @@ public void LoadBonusReplay()
 
 		char clantag[100];
 		CS_GetClientClanTag(g_BonusBot, clantag, sizeof(clantag));
-		if (StrContains(clantag, "BONUS REPLAY") == -1)
+		if (StrContains(clantag, "REPLAY") == -1)
 			g_bNewBonusBot = true;
 		g_iClientInZone[g_BonusBot][2] = g_iBonusToReplay[0];
 		PlayRecord(g_BonusBot, 1);
