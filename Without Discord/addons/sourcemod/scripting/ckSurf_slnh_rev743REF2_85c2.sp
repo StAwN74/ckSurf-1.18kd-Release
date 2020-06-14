@@ -1869,7 +1869,7 @@ public void OnSettingChanged(Handle convar, const char[] oldValue, const char[] 
 public void OnPluginStart()
 {
 	LoadTranslations("common.phrases");
-	//gcv_bPluginEnabled = CreateConVar("hl_goto_enabled", "1", "Enables and disables the goto addon", FCVAR_NOTIFY, true, 0.0, true, 1.0);
+	gcv_bPluginEnabled = CreateConVar("hl_goto_enabled", "1", "Enables and disables the goto addon", FCVAR_NOTIFY, true, 0.0, true, 1.0);
 	gcv_bBotsEnabled = CreateConVar("hl_goto_allow_bots", "1", "Enables and disables the ability to use sm_goto on bots (sm_bring blocked anyway)", FCVAR_NOTIFY, true, 0.0, true, 1.0);
 	gcv_bIgnoreImmunity = CreateConVar("hl_goto_ignore_immunity", "0", "Enable to ignore immunity permissions with sm_goto and sm_bring", FCVAR_NOTIFY, true, 0.0, true, 1.0);
 	gcv_sFlagString = CreateConVar("hl_goto_flags", "a", "Flag for sm_goto and sm_bring commands access (default is vip)", FCVAR_NOTIFY, true, 0.0, true, 1.0);
