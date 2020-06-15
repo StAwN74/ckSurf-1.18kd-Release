@@ -1281,27 +1281,18 @@ public void OnClientDisconnect(int client)
 		KillTimer(AnnounceTimer[client]);
 		AnnounceTimer[client] = null;
 	}
-	if (IsFakeClient(client) && g_hRecordingAdditionalTeleport[client] != null)
-	{
-		CloseHandle(g_hRecordingAdditionalTeleport[client]);
-		g_hRecordingAdditionalTeleport[client] = null;
-	}
-	
-	//in StopRecording
-	//if (IsFakeClient(client))
+	//in StopRecording & StopPlayerMimic
+	//if (g_hRecordingAdditionalTeleport[client] != null)
 	//{
-		//if (g_hRecordingAdditionalTeleport[client] != null)
-		//{
-			//CloseHandle(g_hRecordingAdditionalTeleport[client]);
-			//g_hRecordingAdditionalTeleport[client] = null;
-		//}
-		//if (g_hBotMimicsRecord[client] != null)
-		//{
-			//CloseHandle(g_hBotMimicsRecord[client]);
-			//g_hBotMimicsRecord[client] = null;
-		//}
+		//CloseHandle(g_hRecordingAdditionalTeleport[client]);
+		//g_hRecordingAdditionalTeleport[client] = null;
 	//}
-
+	//if (g_hBotMimicsRecord[client] != null)
+	//{
+		//CloseHandle(g_hBotMimicsRecord[client]);
+		//g_hBotMimicsRecord[client] = null;
+	//}
+	
 	g_fPlayerLastTime[client] = -1.0;
 	if (!IsFakeClient(client) && g_fStartTime[client] != -1.0 && g_bTimeractivated[client])
 	{
