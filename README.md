@@ -25,7 +25,7 @@ My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&autho
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
 # Changelog 👹
-  - 09-13/06/20: Fixed bots quota, plugin doesn't mix their IDs anymore. You still need to change map on server start to work perfectly, but you can just wait for second map. Only fastest bonus bot is replayed for now. Fixed lag on player quit/death.  
+  - 09-13/06/20: Fixed bots quota, plugin doesn't mix their IDs anymore. You still need to change map on server start to work perfectly, but you can just wait for second map. Only the fastest bonus bot is replayed if several bonuses. Fixed lag on player quit/death.  
   
   - 08/06/20: Added 'Estimated Start Speed' in player chat. Fixed the timer after going to spectator team (my bad, here).  
   
