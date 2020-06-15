@@ -1,7 +1,6 @@
 ﻿# ckSurf-1.18kd-Release 🌍
   Last seen version of a great plugin, server crash fixed. No need to fully unload plugin on regular maps, and memory use reduced.
-  Available for 85 tick servers. Find me / Discuss here: https://forums.alliedmods.net/member.php?u=107052.  
-  More info in the included Readme. Taking no credit except the fixing part of a good ol' car, see below:
+  Only 1 bonus replay (fastest) to finally break completely this memory leak. Available for 85 tick servers. Find me / Discuss here: https://forums.alliedmods.net/member.php?u=107052. More info in the included Readme. Taking no credit except the fixing part of a good ol' car, see below:  
   - Replays related crashs fixed. Bots' trails removed like in other forks, for performance.
   - Player & admin commands related issues fixed. Some rcon commands (with client 0) were fuzzy.
   - Weapons and bots management reviewed to avoid errors & maps crashs.
