@@ -26,7 +26,7 @@ My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&autho
 
 # Changelog 👹
   - 09-13/06/20: Fixed bots quota, plugin doesn't mix their IDs anymore. You still need to change map on server start to work perfectly, but you can just wait for second map or a player to join (as it reloads the map).  
-Only the fastest bonus bot is replayed if several bonuses. I have a version with all bonus bots, and one with the same bot replaying all bonus stages, but I won't post beacause they have a memory leak.  
+  Only the fastest bonus bot is replayed if several bonuses. I have a version with all bonus bots, and one with the same bot replaying all bonus stages, but I won't post beacause they have a memory leak.  
   Fixed lag on player quit/death.  
   
   - 08/06/20: Added 'Estimated Start Speed' in player chat. Fixed the timer after going to spectator team (my bad, here).  
