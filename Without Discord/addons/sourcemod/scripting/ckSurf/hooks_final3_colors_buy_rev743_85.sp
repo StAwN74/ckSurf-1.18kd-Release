@@ -370,8 +370,9 @@ public void Event_OnPlayerTeam(Handle event, const char[] name, bool dontBroadca
 	bool disco = GetEventBool(event, "disconnect");
 	if (disco)
 	{
-		CloseHandle(g_hRecordingAdditionalTeleport[client]);
-		g_hRecordingAdditionalTeleport[client] = null;
+		//In StopRecording, and don't close handles before checking if they are not null
+		//CloseHandle(g_hRecordingAdditionalTeleport[client]);
+		//g_hRecordingAdditionalTeleport[client] = null;
 		
 		//Below should be useless cuz the player must have died
 		//Same as OnPlayerDeath
