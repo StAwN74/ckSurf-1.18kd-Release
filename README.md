@@ -1,6 +1,6 @@
 ﻿# ckSurf-1.18kd-Release 🌍
   Last seen version of a great plugin, server crash fixed. No need to fully unload plugin on regular maps.  
-  Available for any server tickrate. Only 1 replay and 1 bonus bot (the fastest one) for maps with several bonuses, to finally and completely break the memory leak.  
+  Available for any server tickrate. Only 1 replay and 1 bonus bot (the fastest one) for maps with several bonus stages, to finally and completely break the memory leak.  
   Find me / Discuss here: https://forums.alliedmods.net/member.php?u=107052. More info in the included Readme.  
   Taking no credit except the fixing part of a good ol' car, see below:  
   - Replays related crashs fixed. Bots' trails removed like in other forks, for performance.
@@ -25,7 +25,7 @@ My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&autho
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
 # Changelog 👹
-  - 09-13/06/20: Fixed bots quota, plugin doesn't mix their IDs anymore. You still need to change map on server start to work perfectly, but you can just wait for second map or a player to join (as it reloads the map). Only the fastest bonus bot is replayed if several bonuses. I have a version with all bonuses but I won't post beacause it has a memory leak.  
+  - 09-13/06/20: Fixed bots quota, plugin doesn't mix their IDs anymore. You still need to change map on server start to work perfectly, but you can just wait for second map or a player to join (as it reloads the map). Only the fastest bonus bot is replayed if several bonuses. I have a version with all bonus bots, and one with the same bot replaying all bonus stages, but I won't post beacause they have a memory leak.  
 Fixed lag on player quit/death.  
   
   - 08/06/20: Added 'Estimated Start Speed' in player chat. Fixed the timer after going to spectator team (my bad, here).  
