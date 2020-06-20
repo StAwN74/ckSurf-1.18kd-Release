@@ -78,7 +78,7 @@ public void Event_OnPlayerSpawn(Handle event, const char[] name, bool dontBroadc
 		{
 			if (!IsFakeClient(client))
 			{
-				StripAllWeapons(client);
+				StripAllWeapons(client); // This gives a knife after removing weaps
 				GivePlayerItem(client, "weapon_usp_silencer");
 			}
 			if (IsFakeClient(client))
