@@ -1234,7 +1234,7 @@ public void PlayButtonSound(int client)
 	{
 		if (IsValidClient(i))
 		{
-			if  (!IsPlayerAlive(i))
+			if (!IsPlayerAlive(i))
 			{
 				int SpecMode = GetEntProp(i, Prop_Send, "m_iObserverMode");
 				if (SpecMode == 4 || SpecMode == 5)
@@ -3416,7 +3416,7 @@ public void CheckpointToSpec(int client, char[] buffer)
 	{
 		if (IsValidClient(x))
 		{
-			if  (!IsPlayerAlive(x))
+			if (!IsPlayerAlive(x))
 			{
 				SpecMode = GetEntProp(x, Prop_Send, "m_iObserverMode");
 				if (SpecMode == 4 || SpecMode == 5)

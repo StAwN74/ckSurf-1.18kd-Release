@@ -1218,7 +1218,7 @@ public Action Client_Usp(int client, int args)
 	
 	if (!IsValidClient(client))
 		return Plugin_Handled;
-	if  (!IsPlayerAlive(client))
+	if (!IsPlayerAlive(client))
 		return Plugin_Handled;
 	
 	if ((GetGameTime() - g_flastClientUsp[client]) < 10.0)
