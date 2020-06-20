@@ -158,33 +158,33 @@ public Action RefreshZoneSettings(Handle timer, any userid)
 	//return Plugin_Handled;
 //}
 
-public Action SetThoseSkinsNow(Handle timer, any userid)
-{
-	int client = GetClientOfUserId(userid);
-	if (client == 0)
-	{
-		return Plugin_Stop;
-	}
-	if (IsValidClient(client))
-	{
-		if (IsPlayerAlive(client) && GetClientTeam(client) > 1)
-		{
-			if(!IsFakeClient(client))
-			{
-				char szBuffer[256];
-				GetConVarString(g_hPlayerModel, szBuffer, 256);
-				SetEntityModel(client, szBuffer);
-			}
-			else
-			{
-				char szBufferx[256];
-				GetConVarString(g_hReplayBotPlayerModel, szBufferx, 256);
-				SetEntityModel(client, szBufferx);
-			}
-		}
-	}
-	return Plugin_Handled;
-}
+//public Action SetThoseSkinsNow(Handle timer, any userid)
+//{
+	//int client = GetClientOfUserId(userid);
+	//if (client == 0)
+	//{
+		//return Plugin_Stop;
+	//}
+	//if (IsValidClient(client))
+	//{
+		//if (IsPlayerAlive(client) && GetClientTeam(client) > 1)
+		//{
+			//if(!IsFakeClient(client))
+			//{
+				//char szBuffer[256];
+				//GetConVarString(g_hPlayerModel, szBuffer, 256);
+				//SetEntityModel(client, szBuffer);
+			//}
+			//else
+			//{
+				//char szBufferx[256];
+				//GetConVarString(g_hReplayBotPlayerModel, szBufferx, 256);
+				//SetEntityModel(client, szBufferx);
+			//}
+		//}
+	//}
+	//return Plugin_Handled;
+//}
 
 public Action PlayerRanksTimer(Handle timer)
 {
