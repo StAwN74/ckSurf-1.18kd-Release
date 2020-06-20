@@ -594,7 +594,7 @@ public void LoadBonusReplay()
 	{
 		if (!IsValidClient(i))
 			continue; // Add condition if already bonus bot, cuz they are several?
-		if (!IsFakeClient(i) || IsClientSourceTV(i) || i == g_InfoBot || i == g_RecordBot || i == g_BonusBot)
+		if (!IsFakeClient(i) || IsClientSourceTV(i) || i == g_InfoBot || i == g_RecordBot)
 			continue;
 		
 		g_BonusBot = i;
