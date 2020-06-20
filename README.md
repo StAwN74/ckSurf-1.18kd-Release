@@ -9,8 +9,7 @@
   - Hooks/events updated, plugin now supports any kind of map & bots don't mess up with mp_restartgame.
   - Timer handles and client indexes fixed. As for the commands, it was leading to weird situations.
 
-Notes: Now you have colored start speed, a fixed goto command by Headline (see changelog), and a slower HUD timer.  
-       I've noticed lighter server weight with this 0.2 secs timer (don't worry for your run, it's only about HUD info.)  
+Notes: Now you have colored start speed, a fixed goto command by Headline (see changelog).  
        sm_clear console warning when starting a run is normal and harmless, it's a fix for a checkpoint plugin I needed.  
 
 Thanks to ZZK community and Freak.exe for testing, and support. Thx to Elzi / jonitaikaponi for the original plugin.  
@@ -25,6 +24,8 @@ My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&autho
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
 # Changelog 👹
+  - 20/06/20: Fixed bot custom skin if ck_custom_models was 1. Reset the 0.1 second timer. Code cleaned a little.  
+  
   - 09-13/06/20: Fixed bots quota, plugin doesn't mix their IDs anymore. You still need to change map on server start to work perfectly, but you can just wait for second map or a player to join (as it reloads the map).  
   Only one bonus bot is replayed if several bonuses. I have a version with all bonus bots, and one with the same bot replaying all bonus stages, but I won't post because they have a memory leak.  
   Fixed lag on player quit/death.  
