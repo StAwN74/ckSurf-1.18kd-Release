@@ -1704,7 +1704,7 @@ public void OnSettingChanged(Handle convar, const char[] oldValue, const char[] 
 		{
 			if (IsValidClient(i))
 			{
-				if (!IsFakeClient(i))
+				if (!IsFakeClient(i) && IsPlayerAlive(i) && GetClientTeam(i) > 1)
 					SetEntityModel(i, szBuffer);
 			}
 		}
@@ -1722,8 +1722,8 @@ public void OnSettingChanged(Handle convar, const char[] oldValue, const char[] 
 		{
 			if (IsValidClient(i))
 			{
-				if (!IsFakeClient(i))
-				SetEntPropString(i, Prop_Send, "m_szArmsModel", szBuffer);
+				if (!IsFakeClient(i) && IsPlayerAlive(i) && GetClientTeam(i) > 1)
+					SetEntPropString(i, Prop_Send, "m_szArmsModel", szBuffer);
 			}
 		}
 	}
