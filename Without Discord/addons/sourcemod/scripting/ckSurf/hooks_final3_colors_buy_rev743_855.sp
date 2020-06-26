@@ -380,6 +380,8 @@ public void Event_OnPlayerTeam(Handle event, const char[] name, bool dontBroadca
 	int client = GetClientOfUserId(GetEventInt(event, "userid"));
 	if (!IsValidClient(client))
 		return;
+	if (IsFakeClient(client))
+		return;
 	
 	int team = GetEventInt(event, "team");
 	
@@ -392,30 +394,30 @@ public void Event_OnPlayerTeam(Handle event, const char[] name, bool dontBroadca
 	//}
 	
 	bool disco = GetEventBool(event, "disconnect");
-	if (disco)
-	{
+	//if (disco)
+	//{
 		//In StopRecording, and don't close handles before checking if they are not null
 		//CloseHandle(g_hRecordingAdditionalTeleport[client]);
 		//g_hRecordingAdditionalTeleport[client] = null;
 		
 		//Below should be useless cuz the player must have died
 		//Same as OnPlayerDeath
-		if (!IsFakeClient(client))
-		{
-			if (g_hRecording[client] != null)
-				StopRecording(client);
-			return;
-		}
-		if (IsFakeClient(client))
-		{
-			if (g_hBotMimicsRecord[client] != null)
-			{
-				g_BotMimicTick[client] = 0;
-				g_CurrentAdditionalTeleportIndex[client] = 0;
-			}
-		}
-		return;
-	}
+		//if (!IsFakeClient(client))
+		//{
+			//if (g_hRecording[client] != null)
+				//StopRecording(client);
+			//return;
+		//}
+		//if (IsFakeClient(client))
+		//{
+			//if (g_hBotMimicsRecord[client] != null)
+			//{
+				//g_BotMimicTick[client] = 0;
+				//g_CurrentAdditionalTeleportIndex[client] = 0;
+			//}
+		//}
+		//return;
+	//}
 	if (!disco && team == 1)
 	{	
 		SpecListMenuDead(client);
