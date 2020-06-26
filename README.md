@@ -24,7 +24,9 @@ My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&autho
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
 # Changelog 👹
-  - 20/06/20: Fixed bot custom skin if ck_custom_models was 1. Reset the 0.1 second timer. Code cleaned a little.  
+  - 26/06/20: Fixing PlayReplay error log in some circumstances.  
+  
+  - 20/06/20: Fixed bot custom skin if ck_custom_models was 1 (animations still won't work since they don't have weaps). Reset the 0.1 second timer. Code cleaned a little.  
   
   - 09-13/06/20: Fixed bots quota, plugin doesn't mix their IDs anymore. You still need to change map on server start to work perfectly, but you can just wait for second map or a player to join (as it reloads the map).  
   Only one bonus bot is replayed if several bonuses. I have a version with all bonus bots, and one with the same bot replaying all bonus stages, but I won't post because they have a memory leak.  
