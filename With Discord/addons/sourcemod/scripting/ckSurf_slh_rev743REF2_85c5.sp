@@ -758,7 +758,7 @@ char RGB_COLOR_NAMES[][] =  // Store RGB color names in an array also
 #include "ckSurf/buttonpress.sp"
 #include "ckSurf/sql_rev_mb4.sp"
 #include "ckSurf/timer_final_revAT02_855.sp"
-#include "ckSurf/replay_final5_fixed_reveCOR2_85B5.sp"
+#include "ckSurf/replay_final5_fixed_reveCOR2_85B9.sp"
 #include "ckSurf/surfzones.sp"
 #include "hl_goto2.sp"
 
@@ -1006,7 +1006,7 @@ public Action CheckThoseLovelyBots(Handle timer)
 		{
 			if (IsFakeClient(i))
 			{
-				//Move InfoBot - and any other accidental bot? to spec
+				//Move InfoBot - and any other accidental bot? to spec - if you say i != g_BonusBot it still gets moved to spec on a better bonus time, we need to rewrite all this bonus bot selection
 				if (i == g_InfoBot)
 					ChangeClientTeam (i, 1);
 			}
@@ -1057,11 +1057,11 @@ public void OnMapEnd()
 	Format(g_szMapName, sizeof(g_szMapName), "");
 	
 	//ClearTrie(g_hLoadedRecordsAdditionalTeleport);
-	if(g_hLoadedRecordsAdditionalTeleport != null)
-	{
-		CloseHandle(g_hLoadedRecordsAdditionalTeleport);
-		g_hLoadedRecordsAdditionalTeleport = null;
-	}
+	//if(g_hLoadedRecordsAdditionalTeleport != null)
+	//{
+		//CloseHandle(g_hLoadedRecordsAdditionalTeleport); // Testing this
+		//g_hLoadedRecordsAdditionalTeleport = null;
+	//}
 	
 	//if (hAdditionalTeleport != null)
 	//{
