@@ -594,7 +594,7 @@ public Action CS_OnTerminateRound(float &delay, CSRoundEndReason &reason)
 		//ServerCommand("bot_kick");
 		return Plugin_Changed;
 	}
-	//Now plugin uses map configs and mp_ignore_round_win_conditions
+	//Now plugin uses map configs and mp_ignore_round_win_conditions. And cktimer.
 	//int timeleft;
 	//GetMapTimeLeft(timeleft);
 	//if (WeAreOk && timeleft >= -1 && !GetConVarBool(g_hAllowRoundEndCvar))

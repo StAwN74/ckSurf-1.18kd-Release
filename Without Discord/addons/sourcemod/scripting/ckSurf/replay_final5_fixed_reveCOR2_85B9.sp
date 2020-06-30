@@ -162,8 +162,11 @@ public void SaveRecording(int client, int zgroup)
 		SetTrieValue(g_hLoadedRecordsAdditionalTeleport, sPath2, g_hRecordingAdditionalTeleport[client]);
 	else
 	{
-		CloseHandle(g_hRecordingAdditionalTeleport[client]);
-		g_hRecordingAdditionalTeleport[client] = null;
+		if (g_hRecordingAdditionalTeleport[client] != null)
+		{
+			CloseHandle(g_hRecordingAdditionalTeleport[client]);
+			g_hRecordingAdditionalTeleport[client] = null;
+		}
 	}
 
 	WriteRecordToDisk(sPath2, iHeader);
@@ -490,9 +493,12 @@ public void LoadRecordFromFile(const char[] path, int headerInfo[FILE_HEADER_LEN
 		SetTrieValue(g_hLoadedRecordsAdditionalTeleport, path, hAdditionalTeleport);
 	else
 	{
-		CloseHandle(hAdditionalTeleport); //Thx
-		//CloseHandle(hRecordFrames); // Testing this
-		//CloseHandle(g_hLoadedRecordsAdditionalTeleport); // Testing this
+		if (hAdditionalTeleport != null)
+		{
+			CloseHandle(hAdditionalTeleport); //Thx
+			//CloseHandle(hRecordFrames); // Testing this
+			//CloseHandle(g_hLoadedRecordsAdditionalTeleport); // Testing this
+		}
 	}
 	CloseHandle(hFile);
 	//// error logs
@@ -663,8 +669,11 @@ public void StopPlayerMimic(int client)
 	g_BotMimicRecordTickCount[client] = 0;
 	g_bValidTeleportCall[client] = false;
 	//SDKUnhook(client, SDKHook_WeaponCanSwitchTo, Hook_WeaponCanSwitchTo);
-	CloseHandle(g_hBotMimicsRecord[client]); // Closed at Disconnection?
-	g_hBotMimicsRecord[client] = null;
+	if (g_hBotMimicsRecord[client] != null)
+	{
+		CloseHandle(g_hBotMimicsRecord[client]); // Closed at Disconnection?
+		g_hBotMimicsRecord[client] = null;
+	}
 	//delete g_hBotMimicsRecord[client];
 	////fix - makes crash at end of player run
 	////g_hRecordingAdditionalTeleport[client] = null;
@@ -847,7 +856,7 @@ public void PlayReplay(int client, int &buttons, int &subtype, int &seed, int &i
 	if (!IsValidClient(client))
 		return;
 		
-	if (!IsPlayerAlive(client) || (GetClientTeam(client) < CS_TEAM_T) || !IsFakeClient(client))
+	if (!IsPlayerAlive(client) || (GetClientTeam(client) < CS_TEAM_T) || !IsFakeClient(client) || IsClientSourceTV(client))
 		return;
 	
 	if (g_hBotMimicsRecord[client] != null)
@@ -876,11 +885,11 @@ public void PlayReplay(int client, int &buttons, int &subtype, int &seed, int &i
 			if ((GetEngineTime() - g_fReplayRestarted[client]) < (BEAMLIFE))
 				return;
 			// was written if (client != g_BonusBot)!!! But it needs it too!! - ok if we let multiple bots
-			//if (client != g_BonusBot)
-			//{
-			//g_BotMimicTick[client] = 0;
-			//g_CurrentAdditionalTeleportIndex[client] = 0;
-			//}
+			if (client != g_BonusBot)
+			{
+				g_BotMimicTick[client] = 0; // Why are we doing this tiwce, same thing for any bot a few lines below
+				g_CurrentAdditionalTeleportIndex[client] = 0;
+			}
 
 			SetEntPropFloat(client, Prop_Data, "m_flLaggedMovementValue", 1.0);
 			g_bReplayAtEnd[client] = false;
