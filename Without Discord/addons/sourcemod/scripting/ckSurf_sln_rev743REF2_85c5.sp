@@ -1041,7 +1041,7 @@ public void OnMapEnd()
 	
 	Format(g_szMapName, sizeof(g_szMapName), "");
 	
-	//ClearTrie(g_hLoadedRecordsAdditionalTeleport);
+	//ClearTrie(g_hLoadedRecordsAdditionalTeleport); // No!
 	//if(g_hLoadedRecordsAdditionalTeleport != null)
 	//{
 		//CloseHandle(g_hLoadedRecordsAdditionalTeleport); // Testing this
@@ -1052,6 +1052,11 @@ public void OnMapEnd()
 	//{
 		//CloseHandle (hAdditionalTeleport);
 		//hAdditionalTeleport = null;
+	//}
+	//if (hRecordFrames != null)
+	//{
+		//CloseHandle (hRecordFrames);
+		//hRecordFrames = null;
 	//}
 }
 
