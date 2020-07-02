@@ -24,7 +24,7 @@ My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&autho
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
 # Changelog 👹
-  - 30/06/20: Fixing PlayReplay error log in some circumstances. Take "c2" version if you still have this error.  I need to make it official in repos.
+  - 30/06/20: Fixing PlayReplay error log in some circumstances. Take "c2" version if you still have this error. It will be the official version.  
   
   - 20/06/20: Fixed bot custom skin if ck_custom_models was 1 (animations still won't work since they don't have weaps). Reset the 0.1 second timer. Code cleaned a little.  
   
