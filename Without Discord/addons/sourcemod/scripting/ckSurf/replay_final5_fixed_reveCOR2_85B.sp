@@ -467,18 +467,18 @@ public void LoadRecordFromFile(const char[] path, int headerInfo[FILE_HEADER_LEN
 	
 	headerInfo[view_as<int>(FH_frames)] = hRecordFrames;
 	
-	// Free any old handles if we already loaded this one once before.
-	Handle hOldAT;
-	if (GetTrieValue(g_hLoadedRecordsAdditionalTeleport, path, hOldAT))
-	{
-		delete hOldAT;
-		RemoveFromTrie(g_hLoadedRecordsAdditionalTeleport, path);
-	}
+	// Free any old handles if we already loaded this one once before. // Need to test this later
+	//Handle hOldAT;
+	//if (GetTrieValue(g_hLoadedRecordsAdditionalTeleport, path, hOldAT))
+	//{
+		//delete hOldAT;
+		//RemoveFromTrie(g_hLoadedRecordsAdditionalTeleport, path);
+	//}
 
 	if (GetArraySize(hAdditionalTeleport) > 0)
 		SetTrieValue(g_hLoadedRecordsAdditionalTeleport, path, hAdditionalTeleport);
-	else
-		CloseHandle(hAdditionalTeleport); //Thx
+	//else
+		//CloseHandle(hAdditionalTeleport); //Thx but error log
 	CloseHandle(hFile);
 	//// error logs
 	////CloseHandle(hRecordFrames);
@@ -828,35 +828,48 @@ public void PlayReplay(int client, int &buttons, int &subtype, int &seed, int &i
 		{
 			if (!g_bReplayAtEnd[client])
 			{
-				//if (client == g_BonusBot)
-				//{
-					// Call to load another replay
-					// Here is why there's a new handle when same bonus bot restarts the run. We need it if multiple bonus bots are expected, but I remove it for now
-					//if (g_iCurrentBonusReplayIndex < (g_BonusBotCount-1))
-						//g_iCurrentBonusReplayIndex++;
-					//else
-						//g_iCurrentBonusReplayIndex = 0;
-					//
-					//PlayRecord(g_BonusBot, 1);
-					//g_iClientInZone[g_BonusBot][2] = g_iBonusToReplay[g_iCurrentBonusReplayIndex];
-				//}
 				g_fReplayRestarted[client] = GetEngineTime();
 				SetEntPropFloat(client, Prop_Data, "m_flLaggedMovementValue", 0.0);
 				g_bReplayAtEnd[client] = true;
 			}
 			
+			g_CurrentAdditionalTeleportIndex[client] = 0;
+			g_BotMimicTick[client] = 0;
+			
 			if ((GetEngineTime() - g_fReplayRestarted[client]) < (BEAMLIFE))
 				return;
-			// was written if (client != g_BonusBot)!!! But it needs it too!!
+			
+			//if (client == g_BonusBot)
 			//{
-			g_BotMimicTick[client] = 0;
-			g_CurrentAdditionalTeleportIndex[client] = 0;
+				// Call to load another replay
+				// Here is why there's a new handle when same bonus bot restarts the run. We need it if multiple bonus bots are expected, but I remove it for now
+				//if (g_iCurrentBonusReplayIndex < (g_BonusBotCount-1))
+				//{
+					//g_iCurrentBonusReplayIndex++;
+					//g_iClientInZone[g_BonusBot][2] = g_iBonusToReplay[g_iCurrentBonusReplayIndex];
+					//PlayRecord(g_BonusBot, 1);
+				//}
+				//else
+				//{
+					//g_iCurrentBonusReplayIndex = 0;
+					//g_iClientInZone[g_BonusBot][2] = g_iBonusToReplay[g_iCurrentBonusReplayIndex];
+					//PlayRecord(g_BonusBot, 1);
+				//}
+				//
+				//PlayRecord(g_BonusBot, 1);
 			//}
-
-			SetEntPropFloat(client, Prop_Data, "m_flLaggedMovementValue", 1.0);
+			
+			// was written if (client != g_BonusBot), but then repeated for other bots
+			//if (client != g_BonusBot)
+			//{
+				//g_BotMimicTick[client] = 0;
+				//g_CurrentAdditionalTeleportIndex[client] = 0;
+			//}
+			
+			//g_CurrentAdditionalTeleportIndex[client] = 0;
+			//g_BotMimicTick[client] = 0;
 			g_bReplayAtEnd[client] = false;
-			g_BotMimicTick[client] = 0;
-			g_CurrentAdditionalTeleportIndex[client] = 0;
+			SetEntPropFloat(client, Prop_Data, "m_flLaggedMovementValue", 1.0);
 		}
 		//if (CheckHideBotWeapon(client))
 			//StripAllWeapons(g_RecordBot);
