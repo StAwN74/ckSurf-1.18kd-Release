@@ -32,11 +32,11 @@ My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&autho
   Only one bonus bot is replayed if several bonuses. I have a version with all bonus bots, and one with the same bot replaying all bonus stages, but I won't post because they have a memory leak.  
   Fixed lag on player quit/death.  
   
-  - 08/06/20: Added 'Estimated Start Speed' in player chat. Fixed the timer after going to spectator team (my bad, here).  
+  - 08/06/20: Added 'Estimated Start Speed' in player chat. Fixed the timer after going to spectator team (mb).  
   
   - 02/06/20: Fixed ragdoll removal, a lil' translation mistyping, & round end/match start on regular maps.  
   Added a raw "FakeClientCommandEx sm_clear" to prevent cheats whith another checkpoint plugin.  
-  Discovered you should not try mp_restartgame on surf_summer (laggy, annoying bot not finding spawn at round start).  
+  Discovered you should not try mp_restartgame on surf_summer (laggy).  
   
   - 16/01/20: Fixed weapon buy on regular maps like de_dust2,  and 'checkSpawns' log error. Plugin uses maps configs (cfg/sourcemod/ckSurf/map_types/) for respawn and round end. ck_autorespawn and ck_round_end are thus obsolete.  
   
