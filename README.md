@@ -2,6 +2,7 @@
   Last seen version of a great plugin, server crash fixed. No need to fully unload plugin on regular maps.  
   Available for any server tickrate. Only 1 replay and 1 bonus bot for maps with several bonus stages, to finally and completely break the memory leak.  
   Find me / Discuss here: https://forums.alliedmods.net/member.php?u=107052. More info in the included Readme.  
+  Last updated summer 2020, being back summer 2021.
   Taking no credit except the fixing part of a good ol' car, see below:  
   - Replays related crashs fixed. Bots' trails removed like in other forks, for performance.
   - Player & admin commands related issues fixed. Some rcon commands (with client 0) were fuzzy.
@@ -24,7 +25,7 @@ My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&autho
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
 # Changelog 👹
-  - 06/07/20: Fixed PlayReplay error log.  
+  - 06/07/20: Fixed PlayReplay error log. Note of Feb.  
   
   - 20/06/20: Fixed bot custom skin if ck_custom_models was 1. Reset the 0.1 second timer. Code cleaned a little.  
   
