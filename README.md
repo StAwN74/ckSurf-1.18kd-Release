@@ -24,22 +24,21 @@ My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&autho
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
 # Changelog 👹
-  - 06/07/20: Fixed PlayReplay error log in some circumstances. Take "c2" version if you still have this error, this will be the official version.  
+  - 06/07/20: Fixed PlayReplay error log.  
   
-  - 20/06/20: Fixed bot custom skin if ck_custom_models was 1 (animations still won't work since they don't have weaps). Reset the 0.1 second timer. Code cleaned a little.  
+  - 20/06/20: Fixed bot custom skin if ck_custom_models was 1. Reset the 0.1 second timer. Code cleaned a little.  
   
-  - 09-13/06/20: Fixed bots quota, plugin doesn't mix their IDs anymore. You still need to change map on server start to work perfectly, but you can just wait for second map or a player to join (as it reloads the map).  
-  Only one bonus bot is replayed if several bonuses. I have a version with all bonus bots, and one with the same bot replaying all bonus stages, but I won't post because they have a memory leak.  
-  Fixed lag on player quit/death.  
+  - 09-13/06/20: Fixed bots quota, plugin doesn't mix their IDs anymore. Reaload map if you have any quota pb.  
+  Fixed lag on player quit/death!!  
   
   - 08/06/20: Added 'Estimated Start Speed' in player chat. Fixed the timer after going to spectator team (mb).  
   
   - 02/06/20: Fixed ragdoll removal, a lil' translation mistyping, & round end/match start on regular maps.  
-  Added a raw "FakeClientCommandEx sm_clear" to prevent cheats whith another checkpoint plugin.  
+  Added a raw "FakeClientCommandEx sm_clear" to prevent cheats whith another checkpoint plugin, adding a harmless console warning (sry though).  
   Discovered you should not try mp_restartgame on surf_summer (laggy).  
   
   - 16/01/20: Fixed weapon buy on regular maps like de_dust2,  and 'checkSpawns' log error. Plugin uses maps configs (cfg/sourcemod/ckSurf/map_types/) for respawn and round end. ck_autorespawn and ck_round_end are thus obsolete.  
   
-  - Note: In plugins/disabled, there is a ckSurf_slh_rev smx file (ckSurf_slnh_rev for non discord users).  
+  - Note: In plugins/disabled, there's a ckSurf_slh_rev smx file (ckSurf_slnh_rev for non discord users).  
     You can use the this version instead of the regular one, if you have properly set sv_hibernate_when_empty 0 in server.cfg and in server's launch command parameters.  
     It will never check and never change your hibernation status to write data in your database, which I recommend.
