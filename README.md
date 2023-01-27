@@ -3,7 +3,7 @@
   Available for any server tickrate.  
   Only 1 bonus bot for maps with several bonus stages, to finally and completely break the memory leak.  
   Find me / Discuss here: https://forums.alliedmods.net/member.php?u=107052. More info in the included Readme.  
-  Last updated summer 2020, being back summer 2021. Edit: Back in jan 2023, I just fixed bots, hud, and updated smlib.
+  Last updated summer 2020, being back in jan 2023. I just fixed bots, hud, and updated smlib, and will share soon.
   Taking no credit except the fixing part of a good ol' car, see below:  
   - Replays related crashs fixed. Bots' trails removed like in other forks, for performance.
   - Player & admin commands related issues fixed. Some rcon commands (with client 0) were fuzzy.
