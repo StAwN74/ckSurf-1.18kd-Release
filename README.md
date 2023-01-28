@@ -27,9 +27,9 @@ My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&autho
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
 # Changelog 👺
-  - 28/01/23: Updated some include files to a newer syntax (smlib: effects & entities, checkpoints.inc, ckSurf: buttonpress, sql, misc).
-			  Updated replay code to fix bots messed up at spawn.
-			  Updated Hud to new colored msgs.
+  - 28/01/23: Updated some include files to a newer syntax (smlib: effects & entities, checkpoints.inc, ckSurf: buttonpress, sql, misc).  
+			  Updated replay code to fix bots messed up at spawn.  
+			  Updated Hud to new colored msgs.  
   
   - 06/07/20: Fixed PlayReplay error log.  
   
