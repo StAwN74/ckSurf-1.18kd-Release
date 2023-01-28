@@ -1,5 +1,5 @@
 ﻿# ckSurf-1.18kd-Release 🌍
-  ***!Being back soon (jan 2023)!***  
+  ***!Recent update (jan 2023)!***  
   Last seen version of a great plugin, server crash fixed. No need to fully unload plugin on regular maps.
   Available for any server tickrate.  
   Only 1 bonus bot for maps with several bonus stages, to finally and completely break the memory leak.  
@@ -27,6 +27,10 @@ My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&autho
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
 # Changelog 👺
+  - 28/01/23: Updated some include files to a newer syntax (smlib: effects & entities, checkpoints.inc, ckSurf: buttonpress, sql, misc).
+			  Updated replay code to fix bots messed up at spawn.
+			  Updated Hud to new colored msgs.
+  
   - 06/07/20: Fixed PlayReplay error log.  
   
   - 20/06/20: Fixed bot custom skin if ck_custom_models was 1. Reset the 0.1 second timer. Code cleaned a little.  
