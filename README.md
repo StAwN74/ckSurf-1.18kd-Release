@@ -14,7 +14,7 @@
   - Hooks/events updated, plugin now supports any kind of map & bots don't mess up with mp_restartgame.  
   - Timer handles and client indexes fixed. As for the commands and hooks, it was leading to weird situations.  
 
-Notes: sm_clear console warning when starting a run is normal and harmless, it's a fix for a checkpoint plugin I needed.  
+Notes: sm_clear console warning when starting a run is normal and harmless, it's a fix for a checkpoint plugin I needed, and figured out it could prevent an exploit, so I left it here.  
 	   [DEV]On 5th feb 2023, my included compiler still works, it also works with newer compilers (1.9+).  
 	   But new syntax is on a perpetual routine...[/DEV]  
 
@@ -24,7 +24,7 @@ Thanks to Headline for his sm_goto:  https://forums.alliedmods.net/showthread.ph
 My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&author=St00ne&description=&search=1
 
 # Install 🏄
-  - Copy cfg/server_example.cfg content to your server.cfg, then upload all files, BUT: scripting, gamedata and extensions folders are not the latest, please back up your own.  
+  - Copy cfg/server_example.cfg content to your server.cfg, then upload all files. scripting, gamedata and extensions folders are not the latest, please back up your own.  
   - Create a database entry in addons/sourcemod/configs/databases.cfg like so (you should set your user & password):
   https://nsa40.casimages.com/img/2019/10/10/191010010823736378.png
   - Start the server. Using -tickrate 102.4 parameter in command start line of a csgo surf server is recommended to avoid ramp glitch.
