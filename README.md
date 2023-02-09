@@ -14,9 +14,9 @@
   - Hooks/events updated, plugin now supports any kind of map & bots don't mess up with mp_restartgame.  
   - Timer handles and client indexes fixed. As for the commands and hooks, it was leading to weird situations.  
 
-Notes: 'sm_clear' player console warning (start/end of run) is normal and harmless. It's a fix for a checkpoint plugin I also used, and figured out it could prevent an exploit, so I left it here.  
-	   [DEV]On 5th feb 2023, my included compiler still works, it also works with newer compilers (1.9+).  
-	   But new syntax is on a perpetual routine...[/DEV]  
+Dev Notes: 'sm_clear' player console warning (start/end of run) is normal and harmless. It's a fix for a checkpoint plugin I also used, and figured out it could prevent an exploit, so I left it here.  
+	       On 5th feb 2023, my included compiler still works, it also works with newer compilers (1.9+).  
+	       But new syntax is on a perpetual routine...
 
 Now you have colored start speed, and a test server: steam://connect/82.66.111.1:27016  
 Thanks to ZZK community and Freak.exe for testing, and support. Thx to Elzi / jonitaikaponi for the original idea.  
