@@ -1,17 +1,18 @@
 ﻿# ckSurf-1.18kd-Release 🌍
   ***! Recent update (jan 2023) - Test server at steam://connect/82.66.111.1:27016 !***  
   
-  Last and only maintained version of a great plugin, server crash fixed.
-  Available for any server tickrate. No need to fully unload plugin on regular maps ! 🔫    
-  Only 1 bonus bot for maps with several bonus stages, to finally and completely break the memory leak.  
+  Latest version of a great Surf & Kz mode plugin, server crash fixed, smoothly tickrated.
+  I know I'm late versus GoKz and KZTimer but at the time, hey I loved the smooth ckSurf.
+  It's like a light version of those two (no low gravity or sideways modes currently).
+  Available for any server tickrate. And you can play on regular maps ! 🔫  
   Find me / Discuss here: https://forums.alliedmods.net/member.php?u=107052. More info in the included Readme.  
-  Easy upgrade after 20023 update. I just fixed bots start, hud, and updated includes to new syntax.  
+  Easy upgrade for servers after 20023 update. I just fixed bots start, hud, and updated includes to new syntax.  
   Taking no credit except the fixing part of a good ol' car, see below:  
   - Replays related crashs fixed. Bots' trails removed like in other forks, for performance.
   - Player & admin commands related issues fixed. Some rcon commands (with client 0) were fuzzy.
-  - Weapons and bots management reviewed to avoid errors & maps crashs.
+  - Weapons and bots management reviewed (some maps give weapons, some remove them) to avoid errors & maps crashs. ABSOLUTELY
   - Hooks/events updated, plugin now supports any kind of map & bots don't mess up with mp_restartgame.
-  - Timer handles and client indexes fixed. As for the commands, it was leading to weird situations.
+  - Timer handles and client indexes fixed. As for the commands and hooks, it was leading to weird situations.
 
 Notes: Now you have colored start speed, a fixed goto command by Headline (see changelog).  
        sm_clear console warning when starting a run is normal and harmless, it's a fix for a checkpoint plugin I needed.  
