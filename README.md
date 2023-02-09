@@ -1,8 +1,9 @@
 ﻿# ckSurf-1.18kd-Release 🌍
   ***! Recent update (jan 2023) - Test server at steam://connect/82.66.111.1:27016 !***  
   
-  Latest version of a great Surf & Kz mode plugin, server crash fixed, smoothly tickrated.  
-  I know I'm late versus GoKz and KZTimer but at the time, hey I loved the smooth ckSurf.  
+  Latest version of a great Surf & Kz mode plugin, server crash AND map change fixed.  
+  I know I'm late versus GoKz and KZTimer but at the time, they were not on and hey, I love ckSurf.  
+  Run it on a 1000hz machine, server acceleration and player moves are just perfect. My favorite tickrate is 102.4.  
   It's like a light version of those two (no low gravity or sideways modes currently).  
   Available for any server tickrate. And you can play on regular maps ! 🔫  
   Find me / Discuss here: https://forums.alliedmods.net/member.php?u=107052. More info in the included Readme.  
@@ -14,11 +15,11 @@
   - Hooks/events updated, plugin now supports any kind of map & bots don't mess up with mp_restartgame.  
   - Timer handles and client indexes fixed. As for the commands and hooks, it was leading to weird situations.  
 
-Notes: Now you have colored start speed, a fixed goto command by Headline (see changelog).  
-       sm_clear console warning when starting a run is normal and harmless, it's a fix for a checkpoint plugin I needed.  
+Notes: sm_clear console warning when starting a run is normal and harmless, it's a fix for a checkpoint plugin I needed.  
 	   [DEV]On 5th feb 2023, my included compiler still works, it also works with newer compilers (1.9+).  
 	   But new syntax is on a perpetual routine...[/DEV]  
 
+Now you have colored start speed, a fixed goto command by Headline (see changelog).  
 Thanks to ZZK community and Freak.exe for testing, and support. Thx to Elzi / jonitaikaponi for the original idea.  
 Thanks to Headline for his sm_goto:  https://forums.alliedmods.net/showthread.php?p=2323724  
 My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&author=St00ne&description=&search=1
