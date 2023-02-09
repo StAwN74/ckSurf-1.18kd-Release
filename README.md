@@ -16,6 +16,8 @@
 
 Notes: Now you have colored start speed, a fixed goto command by Headline (see changelog).  
        sm_clear console warning when starting a run is normal and harmless, it's a fix for a checkpoint plugin I needed.  
+	   [DEV]On 5th feb 2023, my included compiler still works, it also works with newer compilers (1.9+).  
+	   But new syntax is on a perpetual routine...[/DEV]
 
 Thanks to ZZK community and Freak.exe for testing, and support. Thx to Elzi / jonitaikaponi for the original idea.  
 Thanks to Headline for his sm_goto:  https://forums.alliedmods.net/showthread.php?p=2323724  
@@ -29,7 +31,7 @@ My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&autho
   Also consider using start /AboveNormal like said here: https://support.steampowered.com/kb_article.php?ref=5386-HMJI-5162
 
 # Changelog 👺
-  - 28/01/23: Updated some include files to a newer syntax (smlib: effects & entities, checkpoints.inc, ckSurf: buttonpress, sql, misc).  
+  - 28/01/23: Updated some include files to a newer syntax (smlib: effects & entities, checkpoints.inc: see Notes, ckSurf: buttonpress, sql, misc).  
 			  Updated replay code to fix bots messed up at spawn.  
 			  Updated Hud to new colored msgs.  
   
