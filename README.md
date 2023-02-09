@@ -6,11 +6,12 @@
   It's like a light version of those two (no low gravity or sideways modes currently).
   Available for any server tickrate. And you can play on regular maps ! 🔫  
   Find me / Discuss here: https://forums.alliedmods.net/member.php?u=107052. More info in the included Readme.  
-  Easy upgrade for servers after 20023 update. I just fixed bots start, hud, and updated includes to new syntax.  
+  Easy upgrade for servers after 2023 update. I just fixed bots start, hud, and updated includes to new syntax.  
   Taking no credit except the fixing part of a good ol' car, see below:  
   - Replays related crashs fixed. Bots' trails removed like in other forks, for performance.
   - Player & admin commands related issues fixed. Some rcon commands (with client 0) were fuzzy.
-  - Weapons and bots management reviewed (some maps give weapons, some remove them) to avoid errors & maps crashs. ABSOLUTELY
+  - Weapons and bots management reviewed (some maps give weapons, some remove them) to avoid errors & maps crashs.  
+    Stress tests have been done. ;)
   - Hooks/events updated, plugin now supports any kind of map & bots don't mess up with mp_restartgame.
   - Timer handles and client indexes fixed. As for the commands and hooks, it was leading to weird situations.
 
