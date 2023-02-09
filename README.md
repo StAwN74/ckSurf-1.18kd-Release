@@ -24,7 +24,7 @@ Thanks to Headline for his sm_goto:  https://forums.alliedmods.net/showthread.ph
 My other plugins: http://www.sourcemod.net/plugins.php?cat=0&mod=-1&title=&author=St00ne&description=&search=1
 
 # Install 🏄
-  - Copy cfg/server_example.cfg content to your server.cfg, then upload all files, BUT: scripting, gamedata and extensions folders are optional and not latest, please back up your own.  
+  - Copy cfg/server_example.cfg content to your server.cfg, then upload all files, BUT: scripting, gamedata and extensions folders are not the latest, please back up your own.  
   - Create a database entry in addons/sourcemod/configs/databases.cfg like so (you should set your user & password):
   https://nsa40.casimages.com/img/2019/10/10/191010010823736378.png
   - Start the server. Using -tickrate 102.4 parameter in command start line of a csgo surf server is recommended to avoid ramp glitch.
