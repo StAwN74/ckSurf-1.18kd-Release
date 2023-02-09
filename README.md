@@ -1,13 +1,12 @@
 ﻿# ckSurf-1.18kd-Release 🌍
   ***! Recent update (jan 2023) - Test server at steam://connect/82.66.111.1:27016 !***  
   
-  Latest version of a great Surf & Kz mode plugin, server crash AND map change fixed.  
-  I know I'm late versus GoKz and KZTimer but at the time, they were not on and hey, I love ckSurf.  
-  Run it on a 1000hz machine, server acceleration and player moves are just perfect. My favorite tickrate is 102.4.  
+  Latest version of a great Surf & Kz modes plugin, server crash AND map change fixed.  
+  Player moves, acceleration and framerates are just neat with this plugin, either at 85 or 102.4 tickrate.  
+  I know GoKz and KZTimer now have perfectly set up servers and addons, and I support them, but at the time, they were not on and hey, I love ckSurf.  
   It's like a light version of those two (no low gravity or sideways modes currently).  
   Available for any server tickrate. And you can play on regular maps ! 🔫  
   Find me / Discuss here: https://forums.alliedmods.net/member.php?u=107052. More info in the included Readme.  
-  Easy upgrade for servers after 2023 update. I just fixed bots start, hud, and updated includes to new syntax.  
   Taking no credit except the fixing part of a good ol' car, see below:  
   - Replays related crashs fixed. Bots' trails removed like in other forks, for performance.  
   - Player & admin commands related issues fixed. Some rcon commands (with client 0) were fuzzy.  
